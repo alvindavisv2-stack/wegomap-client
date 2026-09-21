@@ -17,6 +17,7 @@ export default function LandingPageWrapper({ data }: { data: any }) {
         return () => setHideLayout(false);
     }, [setHideLayout]);
 
+    
     return (
         <div className="landing-page-root">
             <LandingPageHeader />
