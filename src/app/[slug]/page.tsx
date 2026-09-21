@@ -15,16 +15,8 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    
-    // 1. Check if it's a Category
+
     const staticMeta = categoryData[slug];
-    if (staticMeta) {
-        return {
-            title: staticMeta.seoTitle || staticMeta.title,
-            description: staticMeta.seoMeta || staticMeta.subtitle,
-            keywords: staticMeta.seoKeys,
-        };
-    }
 
     try {
         const [catRes, pageRes, optsRes] = await Promise.all([
@@ -44,11 +36,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
         const catJson = await catRes.json();
         if (catJson.success && catJson.data) {
+            // 1. Category resolved from the CMS/API — its SEO fields take priority,
+            // falling back to the static categoryData entry only if the CMS field is empty.
             const cat = catJson.data;
+            const canonicalUrl = cat.canonical || undefined;
             return {
-                title: cat.seoTitle || cat.title || `${cat.name} | WEGOMAP`,
-                description: cat.seoMeta || cat.description?.substring(0, 160),
-                keywords: cat.seoKeys || globalKeywords,
+                title: cat.seo_title || staticMeta?.seoTitle || cat.title || `${cat.name} | WEGOMAP`,
+                description: cat.seo_description || staticMeta?.seoMeta || cat.description?.substring(0, 160),
+                keywords: globalKeywords || staticMeta?.seoKeys,
+                alternates: canonicalUrl ? { canonical: canonicalUrl } : undefined,
+            };
+        }
+
+        // 1b. No matching category in the CMS/API — fall back to the static entry, if any.
+        if (staticMeta) {
+            return {
+                title: staticMeta.seoTitle || staticMeta.title,
+                description: staticMeta.seoMeta || staticMeta.subtitle,
+                keywords: staticMeta.seoKeys,
             };
         }
 
@@ -71,6 +76,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         }
     } catch (e) {
         console.error("Meta fetch error at root [slug]:", e);
+    }
+
+    if (staticMeta) {
+        return {
+            title: staticMeta.seoTitle || staticMeta.title,
+            description: staticMeta.seoMeta || staticMeta.subtitle,
+            keywords: staticMeta.seoKeys,
+        };
     }
 
     return {

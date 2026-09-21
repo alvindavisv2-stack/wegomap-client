@@ -3,7 +3,7 @@
 import { API_URL } from '@/config';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Save, ArrowLeft, LayoutGrid, Type, Globe, Info, Sparkles, Zap, ShieldCheck, Clock, Layers } from 'lucide-react';
+import { Save, ArrowLeft, LayoutGrid, Type, Globe, Info, Sparkles, Zap, ShieldCheck, Clock, Layers, Search } from 'lucide-react';
 import RichTextEditor from '@/components/admin/Editor';
 import { toast } from 'react-hot-toast';
 
@@ -22,6 +22,9 @@ export default function CreateCategory() {
     subtitle: '',
     contentTitle: '',
     contentDesc: '',
+    seo_title: '',
+    seo_description: '',
+    canonical: '',
     type: 'package'
   });
   const [categories, setCategories] = useState<any[]>([]);
@@ -266,6 +269,49 @@ export default function CreateCategory() {
                   </div>
                 </div>
               )}
+
+              <div className="admin-form-group pt-12 border-t border-slate-100">
+                <label className="admin-form-label flex items-center gap-3 mb-8">
+                  <Search size={18} className="text-emerald-500" /> SEO Settings
+                </label>
+                <div className="space-y-8">
+                  <div className="admin-form-group">
+                    <label className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-3 block">
+                      SEO Title <span className="text-slate-400 normal-case font-normal">(60 chars max)</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.seo_title}
+                      onChange={e => setFormData({ ...formData, seo_title: e.target.value })}
+                      className="admin-form-input h-14"
+                      placeholder={formData.title}
+                    />
+                  </div>
+                  <div className="admin-form-group">
+                    <label className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-3 block">
+                      Meta Description <span className="text-slate-400 normal-case font-normal">(160 chars max)</span>
+                    </label>
+                    <textarea
+                      value={formData.seo_description}
+                      onChange={e => setFormData({ ...formData, seo_description: e.target.value })}
+                      rows={3}
+                      className="admin-form-input"
+                    />
+                  </div>
+                  <div className="admin-form-group">
+                    <label className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-3 block">
+                      Canonical URL <span className="text-slate-400 normal-case font-normal">(optional)</span>
+                    </label>
+                    <input
+                      type="url"
+                      value={formData.canonical}
+                      onChange={e => setFormData({ ...formData, canonical: e.target.value })}
+                      className="admin-form-input font-mono text-[11px]"
+                      placeholder="https://www.wegomap.com/category-slug"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
