@@ -469,8 +469,8 @@ export default function SiteOptionsPage() {
                                     <button 
                                         onClick={() => setPayment({
                                             ...payment, 
-                                            bank_accounts: [...payment.bank_accounts, { 
-                                                name: '', accountName: 'WEGOMAP', accountNo: '', ifsc: '', branch: '', acctType: 'Current Account', color: '#004B92' 
+                                            bank_accounts: [...payment.bank_accounts, {
+                                                name: '', accountName: 'WEGOMAP', accountNo: '', ifsc: '', swiftCode: '', branch: '', acctType: 'Current Account', color: '#004B92'
                                             }]
                                         })}
                                         className="text-[10px] bg-slate-900 text-white px-3 py-1 rounded hover:bg-slate-800 transition-colors"
@@ -547,7 +547,20 @@ export default function SiteOptionsPage() {
                                                     />
                                                 </div>
                                             </div>
-                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3">
+                                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-3">
+                                                <div className="admin-form-group">
+                                                    <label className="text-[10px] font-bold text-slate-400 uppercase">Swift Code</label>
+                                                    <input
+                                                        type="text"
+                                                        value={bank.swiftCode || ''}
+                                                        onChange={e => {
+                                                            const updated = [...payment.bank_accounts];
+                                                            updated[bIdx].swiftCode = e.target.value;
+                                                            setPayment({...payment, bank_accounts: updated});
+                                                        }}
+                                                        className="admin-form-input !h-8 text-[12px] font-mono"
+                                                    />
+                                                </div>
                                                 <div className="admin-form-group">
                                                     <label className="text-[10px] font-bold text-slate-400 uppercase">Branch</label>
                                                     <input 

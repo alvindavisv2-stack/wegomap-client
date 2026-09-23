@@ -15,6 +15,7 @@ const defaultBanks = [
         accountName: 'WEGOMAP',
         accountNo: '50200063067397',
         ifsc: 'HDFC0000310',
+        swiftCode: '',
         branch: 'Aluva Branch',
         acctType: 'Current Account',
         color: '#004B92',
@@ -258,6 +259,15 @@ export default function PaymentPage() {
                                         <CopyButton text={bank.ifsc} />
                                     </span>
                                 </div>
+                                {bank.swiftCode && (
+                                    <div className="payBankRow">
+                                        <span className="payBankLabel">Swift Code</span>
+                                        <span className="payBankVal mono">
+                                            {bank.swiftCode}
+                                            <CopyButton text={bank.swiftCode} />
+                                        </span>
+                                    </div>
+                                )}
                                 <div className="payBankRow">
                                     <span className="payBankLabel">Branch</span>
                                     <span className="payBankVal">{bank.branch}</span>
