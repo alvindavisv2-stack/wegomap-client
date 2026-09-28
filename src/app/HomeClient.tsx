@@ -51,7 +51,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-
+// Import Swiper styles
 
 export default function HomeClient({ initialSlides }: { initialSlides?: any[] }) {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
