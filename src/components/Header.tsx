@@ -451,11 +451,11 @@ export default function Header() {
                                 </>
                             ) : (
                                 <Image
-                                    src="/assets/images/go-globe.png"
+                                    src="/assets/images/hamburger-menu.svg"
                                     alt="Menu"
-                                    width={70}
-                                    height={70}
-                                    className="w-11 h-11 md:w-14 md:h-14 object-contain p-1"
+                                    width={53}
+                                    height={40}
+                                    className="w-6 h-6 md:w-6 md:h-6 object-contain"
                                 />
 
                             )}
@@ -476,11 +476,11 @@ export default function Header() {
                                 </>
                             ) : (
                                 <Image
-                                    src="/assets/images/go-globe.png"
+                                    src="/assets/images/hamburger-menu.svg"
                                     alt="Menu"
-                                    width={70}
-                                    height={70}
-                                    className="w-11 h-11 md:w-14 md:h-14 object-contain p-1"
+                                    width={53}
+                                    height={40}
+                                    className="w-6 h-6 md:w-6 md:h-6 object-contain"
                                 />
 
                             )}

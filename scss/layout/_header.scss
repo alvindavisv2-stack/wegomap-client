@@ -660,14 +660,13 @@ header {
 }
 
 .modernHamburger {
-    width: 48px;
-    height: 48px;
-    background-color: #106bb1;
-    border-radius: 50%;
-
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
 
     padding: 0px;
-    border: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -678,10 +677,8 @@ header {
     box-shadow: none;
 
     img {
-        border-radius: 50%;
-
         @include max(575) {
-            height: 32px;
+            height: 24px;
         }
     }
 
@@ -717,6 +714,7 @@ header {
     &.active {
         gap: 0;
         background-color: $primaryColor;
+        border-color: $primaryColor;
         box-shadow: 0 4px 12px rgba($primaryColor, 0.3);
 
         .line {
