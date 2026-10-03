@@ -64,7 +64,7 @@ const nextConfig = {
     silenceDeprecations: ['import', 'legacy-js-api', 'if-function', 'global-builtin', 'color-functions']
   },
   typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
+  experimental: { cpus: 1 },
   async redirects() {
     return [
       {
