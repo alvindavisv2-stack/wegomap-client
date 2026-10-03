@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"sass --watch scss/style.scss public/scss/style.css\" \"next dev\"",
-    "build": "sass scss/style.scss public/scss/style.css && TURBOPACK=0 NEXT_PRIVATE_TURBOPACK=0 NODE_OPTIONS=\"--max-old-space-size=512\" next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public && cd .next/standalone && cp server.js app.js && cp server.js index.js && npm pkg set scripts.start=\"node app.js\"",
+    "build": "sass scss/style.scss public/scss/style.css && next build --webpack && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public && cd .next/standalone && cp server.js app.js && cp server.js index.js && npm pkg set scripts.start=\"node app.js\"",
     "start": "next start",
     "lint": "eslint",
     "copy-tinymce": "powershell -Command \"New-Item -ItemType Directory -Force -Path public/tinymce | Out-Null; Copy-Item -Recurse -Force node_modules/tinymce/skins public/tinymce/; Copy-Item -Recurse -Force node_modules/tinymce/icons public/tinymce/; Copy-Item -Recurse -Force node_modules/tinymce/themes public/tinymce/; Copy-Item -Recurse -Force node_modules/tinymce/models public/tinymce/; Copy-Item -Recurse -Force node_modules/tinymce/plugins public/tinymce/; Copy-Item -Force node_modules/tinymce/tinymce.min.js public/tinymce/\""
