@@ -64,7 +64,7 @@ const nextConfig = {
     silenceDeprecations: ['import', 'legacy-js-api', 'if-function', 'global-builtin', 'color-functions']
   },
   typescript: { ignoreBuildErrors: true },
-  experimental: { cpus: 1 },
+  experimental: { cpus: 1, webpackBuildWorker: false, memoryBasedWorkersCount: true },
   async redirects() {
     return [
       {
