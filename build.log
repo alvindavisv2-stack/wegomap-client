@@ -1,157 +1,1535 @@
-⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
- We detected multiple lockfiles and selected the directory of /Users/ajeeshrajan/Documents/wegomap/package-lock.json as the root directory.
- To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
-   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
- Detected additional lockfiles: 
-   * /Users/ajeeshrajan/Documents/wegomap/frontend/package-lock.json
+
+> frontend@0.1.0 build
+> sass scss/style.scss public/scss/style.css && next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public && cd .next/standalone && cp server.js app.js && cp server.js index.js && npm pkg set scripts.start="node app.js"
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+7 │ @import "../scss/helpers/variables";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    scss/style.scss 7:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+8 │ @import "../scss/helpers/media-queries";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    scss/style.scss 8:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+9 │ @import "../scss/helpers/mixins";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    scss/style.scss 9:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ @import "../scss/helpers/font-kit";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    scss/style.scss 10:9  root stylesheet
+
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+11 │ @import "../scss/helpers/utilities";
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    scss/style.scss 11:9  root stylesheet
+
+DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass(length($color) == 2): nth($color, 2); else: transparent)
+
+More info: https://sass-lang.com/d/if-function
+
+    ╷
+184 │   $background-color: if(length($color) == 2, nth($color, 2), transparent);
+    │                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    scss/helpers/_mixins.scss 184:22  @import
+    scss/style.scss 9:9               root stylesheet
+
+DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass(length($size) > 1): $height; else: $height / 2)
+
+More info: https://sass-lang.com/d/if-function
+
+    ╷
+194 │     $height: if(length($size) > 1, $height, $height/2);
+    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    scss/helpers/_mixins.scss 194:14  @import
+    scss/style.scss 9:9               root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+41 │             color: darken($primaryGold, 25%);
+   │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    scss/pages/_about-us.scss 41:20  @import
+    scss/style.scss 35:9             root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -42.7852348993%)
+color.adjust($color, $lightness: -25%)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+41 │             color: darken($primaryGold, 25%);
+   │                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    scss/pages/_about-us.scss 41:20  @import
+    scss/style.scss 35:9             root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+289 │       background: linear-gradient(135deg, $primaryColor, darken($primaryColor, 10%));
+    │                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    scss/pages/_contact.scss 289:58  @import
+    scss/style.scss 37:9             root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -16.5584415584%)
+color.adjust($color, $lightness: -10%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+289 │       background: linear-gradient(135deg, $primaryColor, darken($primaryColor, 10%));
+    │                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    scss/pages/_contact.scss 289:58  @import
+    scss/style.scss 37:9             root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+408 │                             background-color: darken($cosmicOrange, 5%);
+    │                                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    scss/pages/_tour-category.scss 408:47  @import
+    scss/style.scss 40:9                   root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -8.0696202532%)
+color.adjust($color, $lightness: -5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+408 │                             background-color: darken($cosmicOrange, 5%);
+    │                                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    scss/pages/_tour-category.scss 408:47  @import
+    scss/style.scss 40:9                   root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+     ╷
+1038 │                         background: linear-gradient(to right, darken($primaryColor, 10%), darken($cosmicOrange, 10%));
+     │                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+    scss/pages/_tour-category.scss 1038:63  @import
+    scss/style.scss 40:9                    root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -16.5584415584%)
+color.adjust($color, $lightness: -10%)
+
+More info: https://sass-lang.com/d/color-functions
+
+     ╷
+1038 │                         background: linear-gradient(to right, darken($primaryColor, 10%), darken($cosmicOrange, 10%));
+     │                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+    scss/pages/_tour-category.scss 1038:63  @import
+    scss/style.scss 40:9                    root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+     ╷
+1038 │                         background: linear-gradient(to right, darken($primaryColor, 10%), darken($cosmicOrange, 10%));
+     │                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+    scss/pages/_tour-category.scss 1038:91  @import
+    scss/style.scss 40:9                    root stylesheet
+
+DEPRECATION WARNING [color-functions]: darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -16.1392405063%)
+color.adjust($color, $lightness: -10%)
+
+More info: https://sass-lang.com/d/color-functions
+
+     ╷
+1038 │                         background: linear-gradient(to right, darken($primaryColor, 10%), darken($cosmicOrange, 10%));
+     │                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+    scss/pages/_tour-category.scss 1038:91  @import
+    scss/style.scss 40:9                    root stylesheet
+
+WARNING: 62 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
 
 ▲ Next.js 16.1.6 (Turbopack)
-- Environments: .env.production
+- Environments: .env.local, .env.production
 
   Creating an optimized production build ...
-✓ Compiled successfully in 9.5s
-  Running TypeScript ...
+✓ Compiled successfully in 4.1s
+  Skipping validation of types
   Collecting page data using 9 workers ...
-  Generating static pages using 9 workers (0/105) ...
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-  Generating static pages using 9 workers (26/105) 
-  Generating static pages using 9 workers (52/105) 
-  Generating static pages using 9 workers (78/105) 
-✓ Generating static pages using 9 workers (105/105) in 407.9ms
+  Generating static pages using 9 workers (0/86) ...
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for events: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for cruises: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for hotels: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for about: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+  Generating static pages using 9 workers (21/86) 
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for packages: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for services: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+  Generating static pages using 9 workers (42/86) 
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for blogs: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for cabs: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Error fetching SEO for contact: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+  Generating static pages using 9 workers (64/86) 
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Failed to load tracking scripts: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+Metadata fetch error: TypeError: fetch failed
+    at ignore-listed frames {
+  [cause]: AggregateError: 
+      at ignore-listed frames {
+    code: 'ECONNREFUSED'
+  }
+}
+✓ Generating static pages using 9 workers (86/86) in 281.7ms
   Finalizing page optimization ...
 
-Route (app)                                    Revalidate  Expire
-┌ ○ /                                                  1m      1y
-├ ○ /_not-found                                        1m      1y
-├ ƒ /[category]/tours/[id]
-├ ○ /about                                             1m      1y
-├ ○ /admin                                             1m      1y
-├ ○ /admin-login                                       1m      1y
-├ ○ /admin/about-page                                  1m      1y
-├ ○ /admin/amenities                                   1m      1y
+Route (app)                              Revalidate  Expire
+┌ ○ /                                            1m      1y
+├ ○ /_not-found                                  1m      1y
+├ ƒ /[slug]
+├ ƒ /[slug]/packages/[id]
+├ ○ /about                                       1m      1y
+├ ○ /admin                                       1m      1y
+├ ○ /admin/about-page                            1m      1y
+├ ○ /admin/amenities                             1m      1y
 ├ ƒ /admin/amenities/[id]/edit
-├ ○ /admin/amenities/create                            1m      1y
-├ ○ /admin/banners                                     1m      1y
+├ ○ /admin/amenities/create                      1m      1y
+├ ○ /admin/banners                               1m      1y
 ├ ƒ /admin/banners/[id]/edit
-├ ○ /admin/banners/create                              1m      1y
-├ ○ /admin/blogs                                       1m      1y
+├ ○ /admin/banners/create                        1m      1y
+├ ○ /admin/blogs                                 1m      1y
+├ ○ /admin/blogs-page                            1m      1y
 ├ ƒ /admin/blogs/[id]/edit
-├ ○ /admin/blogs/create                                1m      1y
-├ ○ /admin/cabs                                        1m      1y
+├ ○ /admin/blogs/create                          1m      1y
+├ ○ /admin/cabs                                  1m      1y
 ├ ƒ /admin/cabs/[id]/edit
-├ ○ /admin/cabs/create                                 1m      1y
-├ ○ /admin/categories                                  1m      1y
+├ ○ /admin/cabs/create                           1m      1y
+├ ○ /admin/categories                            1m      1y
 ├ ƒ /admin/categories/[id]/edit
-├ ○ /admin/categories/create                           1m      1y
-├ ○ /admin/customers                                   1m      1y
-├ ○ /admin/destinations                                1m      1y
+├ ○ /admin/categories/create                     1m      1y
+├ ○ /admin/contact-page                          1m      1y
+├ ○ /admin/cruises-page                          1m      1y
+├ ○ /admin/customers                             1m      1y
+├ ○ /admin/destinations                          1m      1y
 ├ ƒ /admin/destinations/[id]/edit
-├ ○ /admin/destinations/create                         1m      1y
-├ ○ /admin/events                                      1m      1y
-├ ○ /admin/events-settings                             1m      1y
+├ ○ /admin/destinations/create                   1m      1y
+├ ○ /admin/events                                1m      1y
+├ ○ /admin/events-settings                       1m      1y
 ├ ƒ /admin/events/[id]/edit
-├ ○ /admin/events/create                               1m      1y
-├ ○ /admin/faqs                                        1m      1y
+├ ○ /admin/events/create                         1m      1y
+├ ○ /admin/faq-page                              1m      1y
+├ ○ /admin/faqs                                  1m      1y
 ├ ƒ /admin/faqs/[id]/edit
-├ ○ /admin/faqs/create                                 1m      1y
-├ ○ /admin/home-settings                               1m      1y
-├ ○ /admin/hotel-landing-page                          1m      1y
+├ ○ /admin/faqs/create                           1m      1y
+├ ○ /admin/home-settings                         1m      1y
+├ ○ /admin/hotel-landing-page                    1m      1y
 ├ ƒ /admin/hotel-landing-page/[id]/edit
-├ ○ /admin/hotel-landing-page/create                   1m      1y
-├ ○ /admin/houseboat                                   1m      1y
-├ ○ /admin/houseboats                                  1m      1y
+├ ○ /admin/hotel-landing-page/create             1m      1y
+├ ○ /admin/hotels-page                           1m      1y
+├ ○ /admin/houseboat                             1m      1y
+├ ○ /admin/houseboats                            1m      1y
 ├ ƒ /admin/houseboats/[id]/edit
-├ ○ /admin/houseboats/create                           1m      1y
-├ ○ /admin/landing-page                                1m      1y
+├ ○ /admin/houseboats/create                     1m      1y
+├ ○ /admin/landing-page                          1m      1y
 ├ ƒ /admin/landing-page/[id]
-├ ○ /admin/landing-page/create                         1m      1y
-├ ○ /admin/leads                                       1m      1y
-├ ○ /admin/menus                                       1m      1y
-├ ○ /admin/packages                                    1m      1y
+├ ○ /admin/landing-page/create                   1m      1y
+├ ○ /admin/leads                                 1m      1y
+├ ○ /admin/menus                                 1m      1y
+├ ○ /admin/offer-banners                         1m      1y
+├ ƒ /admin/offer-banners/[id]/edit
+├ ○ /admin/offer-banners/create                  1m      1y
+├ ○ /admin/packages                              1m      1y
 ├ ƒ /admin/packages/[id]/edit
-├ ○ /admin/packages/create                             1m      1y
-├ ○ /admin/pages                                       1m      1y
+├ ○ /admin/packages/create                       1m      1y
+├ ○ /admin/pages                                 1m      1y
 ├ ƒ /admin/pages/[id]/edit
-├ ○ /admin/pages/%5Bid%5D/edit                         1m      1y
-├ ○ /admin/pages/create                                1m      1y
-├ ○ /admin/seo                                         1m      1y
+├ ○ /admin/pages/%5Bid%5D/edit                   1m      1y
+├ ○ /admin/pages/create                          1m      1y
+├ ○ /admin/payment-page                          1m      1y
+├ ○ /admin/redirections                          1m      1y
+├ ○ /admin/seo                                   1m      1y
 ├ ƒ /admin/seo/[id]/edit
-├ ○ /admin/services                                    1m      1y
-├ ○ /admin/services-page                               1m      1y
+├ ○ /admin/services                              1m      1y
+├ ○ /admin/services-page                         1m      1y
 ├ ƒ /admin/services/[id]/edit
-├ ○ /admin/services/create                             1m      1y
-├ ○ /admin/settings                                    1m      1y
-├ ƒ /admin/settings/[id]/edit
-├ ○ /admin/settings/create                             1m      1y
-├ ○ /admin/site-options                                1m      1y
-├ ○ /admin/sliders                                     1m      1y
+├ ○ /admin/services/create                       1m      1y
+├ ○ /admin/site-options                          1m      1y
+├ ○ /admin/sliders                               1m      1y
 ├ ƒ /admin/sliders/[id]/edit
-├ ○ /admin/sliders/create                              1m      1y
-├ ○ /admin/special-events                              1m      1y
+├ ○ /admin/sliders/create                        1m      1y
+├ ○ /admin/special-events                        1m      1y
 ├ ƒ /admin/special-events/[id]/edit
-├ ○ /admin/special-events/create                       1m      1y
-├ ○ /admin/testimonials                                1m      1y
+├ ○ /admin/special-events/create                 1m      1y
+├ ○ /admin/testimonials                          1m      1y
 ├ ƒ /admin/testimonials/[id]/edit
-├ ○ /admin/testimonials/create                         1m      1y
-├ ○ /andaman-packages                                  1m      1y
-├ ○ /azerbaijan-tour-packages                          1m      1y
-├ ○ /bali-tour-packages-from-kochi-kerala              1m      1y
-├ ○ /bhutan-packages                                   1m      1y
-├ ○ /blogs                                             1m      1y
+├ ○ /admin/testimonials/create                   1m      1y
+├ ○ /admin/tours-page                            1m      1y
+├ ○ /admin/users                                 1m      1y
+├ ○ /admin/users/create                          1m      1y
+├ ƒ /admin/users/edit/[id]
+├ ƒ /api/generate-sitemap
+├ ƒ /api/redirections
+├ ○ /blogs                                       1m      1y
 ├ ƒ /blogs/[slug]
-├ ○ /contact                                           1m      1y
-├ ○ /coorg-mysore-ooty                                 1m      1y
-├ ○ /coorg-tour-package                                1m      1y
-├ ○ /cruise-packages                                   1m      1y
-├ ○ /darjeeling                                        1m      1y
-├ ○ /dashboard                                         1m      1y
-├ ○ /domestic-tour-packages                            1m      1y
-├ ○ /dubai-tour-packages                               1m      1y
-├ ○ /events                                            1m      1y
+├ ○ /cabs                                        1m      1y
+├ ○ /contact                                     1m      1y
+├ ○ /cruises                                     1m      1y
+├ ○ /dashboard                                   1m      1y
+├ ○ /events                                      1m      1y
 ├ ƒ /events/[slug]
-├ ○ /faq                                               1m      1y
-├ ○ /goa-tour-packages-from-kerala                     1m      1y
-├ ○ /golden-triangle-tour-package                      1m      1y
+├ ○ /faq                                         1m      1y
+├ ○ /hotels                                      1m      1y
 ├ ƒ /hotels/[slug]
-├ ○ /international-tour-packages                       1m      1y
-├ ○ /kashmir-holiday-package                           1m      1y
-├ ○ /kerala-alleppey-boat-house                        1m      1y
-├ ○ /kerala-family-tour-packages                       1m      1y
-├ ○ /kerala-honeymoon-packages                         1m      1y
-├ ○ /kerala-taxi-service                               1m      1y
-├ ○ /kerala-tour-packages                              1m      1y
-├ ○ /kerala-tour-packages-from-bangalore               1m      1y
-├ ○ /kodaikanal-tour-packages                          1m      1y
-├ ○ /lakshadweep-tour-package                          1m      1y
-├ ○ /leh-ladakh-tour-package                           1m      1y
-├ ○ /login                                             1m      1y
-├ ○ /malaysia-tour-packages-from-kochi-kerala          1m      1y
-├ ○ /maldives-tour-packages-from-kochi-kerala          1m      1y
-├ ○ /manali-tour-packages                              1m      1y
-├ ○ /meghalaya-tour-package                            1m      1y
-├ ○ /my-booking                                        1m      1y
-├ ○ /nepal-tour-packages                               1m      1y
-├ ○ /ooty-kodaikanal-tour-packages                     1m      1y
-├ ○ /ooty-tour-packages                                1m      1y
-├ ○ /packages                                          1m      1y
+├ ○ /login                                       1m      1y
+├ ○ /my-booking                                  1m      1y
+├ ○ /packages                                    1m      1y
 ├ ƒ /packages/[slug]
-├ ○ /payment                                           1m      1y
-├ ○ /rajasthan-tour-package                            1m      1y
-├ ○ /services                                          1m      1y
-├ ○ /signup                                            1m      1y
-├ ○ /singapore-tour-package                            1m      1y
-├ ○ /special-events                                    1m      1y
+├ ○ /payment                                     1m      1y
+├ ○ /privacy-policy                              1m      1y
+├ ○ /refund-policy                               1m      1y
+├ ○ /robots.txt
+├ ○ /services                                    1m      1y
+├ ○ /signup                                      1m      1y
+├ ○ /sitemap.xml                                 1h      1y
+├ ○ /special-events                              1m      1y
 ├ ƒ /special-events/[slug]
-├ ○ /sri-lanka                                         1m      1y
-├ ○ /thailand-tour-packages-from-kochi-kerala          1m      1y
-├ ○ /tours                                             1m      1y
-├ ○ /trending                                          1m      1y
-├ ○ /varanasi-package                                  1m      1y
-├ ○ /vietnam-package                                   1m      1y
-└ ○ /wishlist                                          1m      1y
+├ ○ /terms-and-conditions                        1m      1y
+└ ○ /wishlist                                    1m      1y
 
+
+ƒ Proxy (Middleware)
 
 ○  (Static)   prerendered as static content
 ƒ  (Dynamic)  server-rendered on demand

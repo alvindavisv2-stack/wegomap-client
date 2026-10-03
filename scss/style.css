@@ -2194,12 +2194,12 @@ header .button-wrapper .modernHamburger {
 }
 
 .modernHamburger {
-  width: 48px;
-  height: 48px;
-  background-color: #106bb1;
-  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  background-color: transparent;
   padding: 0px;
-  border: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -2209,12 +2209,9 @@ header .button-wrapper .modernHamburger {
   transition: all 0.3s ease;
   box-shadow: none;
 }
-.modernHamburger img {
-  border-radius: 50%;
-}
 @media (max-width: 575px) {
   .modernHamburger img {
-    height: 32px;
+    height: 24px;
   }
 }
 .modernHamburger:hover {
@@ -2244,6 +2241,7 @@ header .button-wrapper .modernHamburger {
 .modernHamburger.active {
   gap: 0;
   background-color: #FF6B35;
+  border-color: #FF6B35;
   box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
 }
 .modernHamburger.active .line {
