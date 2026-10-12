@@ -4,6 +4,7 @@ import { API_URL } from '@/config';
 import { useEffect, useState } from 'react';
 import { Save, ShieldCheck, Layout, Zap, Globe, MapPin, Users, MessageSquare, Anchor, FileText, Sparkles, Compass, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'react-hot-toast';
+import RichTextEditor from '@/components/admin/Editor';
 
 interface HomeSection {
     id: string;
@@ -209,12 +210,10 @@ export default function HomeSettingsPage() {
 
                                 <div className="admin-form-group">
                                     <label className="premium-label">Narrative Description</label>
-                                    <textarea
-                                        rows={4}
+                                    <RichTextEditor
                                         value={section.description}
-                                        onChange={e => updateSection(section.id, 'description', e.target.value)}
-                                        className="premium-textarea"
-                                        placeholder="Craft a compelling story..."
+                                        onChange={val => updateSection(section.id, 'description', val)}
+                                        height={300}
                                     />
                                 </div>
                             </div>

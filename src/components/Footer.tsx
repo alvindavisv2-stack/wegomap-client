@@ -65,12 +65,18 @@ export default function Footer() {
     useEffect(() => {
         const handleScroll = () => {
             const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (window.scrollY / totalHeight) * 100;
-            setScrollProgress(progress);
+            // A page that can't scroll has totalHeight 0, and 0 / 0 gives NaN
+            const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+            setScrollProgress(Math.min(100, Math.max(0, progress)));
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
     }, []);
 
     const scrollToTop = () => {

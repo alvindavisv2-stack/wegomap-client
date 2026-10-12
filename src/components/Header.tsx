@@ -53,7 +53,7 @@ const navLinks = [
     },
     { name: 'Events', href: '/events' },
     { name: 'Hotels', icon: 'Building2', href: '/hotels' },
-    { name: 'Cruises', href: '/cruises' },
+    { name: 'Cruises', href: '/cruise-packages' },
     { name: 'Cabs', icon: 'Car', href: '/cabs' },
     { name: 'Payment', href: '/payment' },
     { name: 'Blogs', href: '/blogs' },

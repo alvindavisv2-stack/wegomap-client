@@ -1,0 +1,1338 @@
+// Cruise Packages landing page: hero + cruise line cards
+$cpNavy: #061e3a;
+$cpOcean: #0a5278;
+$cpTeal: #0e7490;
+
+// Taller banner than the default PageBanner
+.cpBanner .pageBanner {
+    height: 520px;
+
+    @include min(768) {
+        height: 760px;
+    }
+
+    // Let the photo show through: full image opacity, lighter overlay
+    .pageBannerImg img {
+        opacity: 1;
+    }
+
+    .pageBannerOverlay {
+        background: rgba(12, 18, 33, 0.3);
+    }
+
+    // Gradient line beside the description (orange to blue, same gradient as the home page headings)
+    .pageBannerContent .pageBannerDescription {
+        border-left: 3px solid;
+        border-image: linear-gradient(180deg, #FF6B35 0%, #FB7F33 55%, #0472b4 100%) 1;
+        // The default grey text disappears over the bright photo
+        color: #fff;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.65);
+    }
+
+    // Narrow title so "from Kochi" wraps onto the second line
+    .pageBannerContent .pageBannerTitle {
+        max-width: 700px;
+    }
+}
+
+// Section 2: cruise lines
+.cpLines {
+    padding: 70px 0 90px;
+    background: #f8fafc;
+
+    &Grid {
+        display: grid;
+        gap: 32px;
+
+        @include min(992) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+.cpCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 420px;
+    padding: 22px;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 28px;
+    color: #fff;
+    background-color: $cpNavy;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    @include min(768) { min-height: 480px; padding: 28px; }
+
+    // Bottom fade so the text reads over any photo
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(6, 30, 58, 0.15) 0%, rgba(6, 30, 58, 0) 35%, rgba(6, 30, 58, 0.9) 100%);
+    }
+
+    &Tag {
+        align-self: flex-start;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    &Info { display: grid; gap: 14px; }
+
+    &Title {
+        margin: 0;
+        max-width: 560px;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #fff;
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+
+        @include min(768) { font-size: 1.9rem; }
+    }
+
+    &Best {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+
+        em { font-size: 13px; font-style: normal; color: rgba(255, 255, 255, 0.8); margin-right: 2px; }
+
+        span {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            font-size: 13px;
+        }
+    }
+
+    &Actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 4px;
+    }
+
+    &Btn {
+        flex: 1;
+        max-width: 340px;
+        padding: 15px 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 0;
+        border-radius: 999px;
+        background: $primaryColor;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba($primaryColor, 0.45);
+        transition: background 0.25s, transform 0.25s;
+
+        &:hover { background: #fb7f33; }
+    }
+
+    // Round "details" button
+    &Link {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: #fff;
+        transition: background 0.25s, transform 0.25s;
+
+        &:hover { background: #fff; color: $cpNavy; }
+    }
+}
+
+// Section 3 / 4: cruise line details
+.cpDetails {
+    padding: 80px 0;
+    background: #fff;
+    scroll-margin-top: 90px;
+
+    &.royal { background: #f8fafc; }
+}
+
+.cpSubHeading {
+    margin: 0 0 20px;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: $black;
+}
+
+// Cabin types slider
+.cpSlider {
+    margin: 0 0 20px;
+    padding-bottom: 8px;
+
+    .swiper-slide { height: auto; display: flex; }
+    .swiper-slide .cpFeature { width: 100%; }
+}
+
+.cpSliderNav {
+    margin-bottom: 40px;
+
+    // No progress line on desktop (the slider still advances by itself); the gap stays
+    @include min(992) {
+        height: 24px;
+        margin-bottom: 40px;
+
+        .progressWrapper { display: none; }
+    }
+}
+
+.cpFeature {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 420px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: linear-gradient(160deg, #0a3b5c, #061e3a);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    .royal & { background: linear-gradient(160deg, #1b1464, #0472b4); }
+
+    // Big step number
+    &No {
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        font-size: 3.2rem;
+        font-weight: 400;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.28);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+        -webkit-text-fill-color: transparent;
+    }
+
+    // Text sits on a bottom fade, no box
+    &Glass {
+        width: 100%;
+        padding: 90px 22px 22px;
+        color: #fff;
+        background: linear-gradient(180deg, rgba(6, 30, 58, 0) 0%, rgba(6, 30, 58, 0.92) 70%);
+
+        h4 { margin: 10px 0 8px; font-size: 1.4rem; font-weight: 400; line-height: 1.2; color: #fff; }
+        p { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(255, 255, 255, 0.9); }
+    }
+
+    &Meta {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 12px;
+        line-height: 1.4;
+        background: $primaryColor;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
+
+.cpPanels {
+    display: grid;
+    gap: 40px;
+}
+
+// Inclusions card + Lakshadweep excursions card
+.cpPanels {
+    display: grid;
+    gap: 28px;
+
+    // Side by side only on wide screens; stacked on tablets and 1024px laptops
+    @include min(1280) { grid-template-columns: 1.25fr 1fr; align-items: stretch; }
+}
+
+// ---- Inclusions ----
+.cpIncl {
+    overflow: hidden;
+    border-radius: 28px;
+    background: #fff;
+    border: 1px solid #e2eef6;
+    box-shadow: 0 14px 40px rgba(10, 82, 120, 0.1);
+}
+
+.cpInclHead {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 28px 14px;
+    background: #eaf6fc;
+
+    h4 { margin: 4px 0 2px; font-size: 1.8rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; color: #0a2a4a; }
+    p { margin: 0; font-size: 14px; color: #475569; }
+
+    @include max(575) { padding: 16px 16px 12px; h4 { font-size: 1.5rem; } }
+}
+
+.cpInclTabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 28px 4px;
+
+    button {
+        padding: 8px 16px;
+        border: 1px solid #cfe3f1;
+        border-radius: 999px;
+        background: #fff;
+        font-size: 13px;
+        color: #0a4f8a;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+
+        &.active { background: #0a5278; border-color: #0a5278; color: #fff; }
+    }
+
+    @include max(575) { padding: 14px 18px 2px; button { padding: 7px 12px; font-size: 12px; } }
+}
+
+.cpInclIntro {
+    margin: 12px 28px 0;
+    font-size: 13.5px;
+    color: #64748b;
+
+    @include max(575) { margin: 10px 18px 0; }
+}
+
+.cpInclRows {
+    display: grid;
+    margin: 0;
+    padding: 2px 28px 6px;
+    list-style: none;
+
+    @include min(768) { grid-template-columns: 1fr 1fr; column-gap: 44px; }
+    @include max(575) { padding: 4px 18px 6px; }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 10px 0;
+        border-bottom: 1px solid #edf2f7;
+    }
+}
+
+.cpInclIcon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #1e6f4a;
+    background: #e3f6e0;
+}
+
+.cpInclText { font-size: 15px; font-weight: 400; line-height: 1.4; color: #0a2a4a; }
+
+.cpNot {
+    margin: 10px 32px 32px;
+    padding: 20px 24px 22px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #fff3f3, #ffe9ea);
+    border: 1px solid rgba($red, 0.2);
+
+    @include max(575) { margin: 8px 18px 20px; padding: 16px; }
+
+    h5 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 12px;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: $red;
+
+        span {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: $red;
+            color: #fff;
+        }
+
+        // Which cabin types the list applies to
+        em {
+            font-style: normal;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            text-transform: none;
+            color: #64748b;
+        }
+    }
+
+    ul {
+        display: grid;
+        gap: 8px 36px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include min(576) { grid-template-columns: 1fr 1fr; }
+    }
+
+    li {
+        position: relative;
+        padding-left: 16px;
+        font-size: 13.5px;
+        line-height: 1.45;
+        color: #64748b;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: $red;
+        }
+    }
+}
+
+// ---- Excursions ----
+.cpExcur {
+    overflow: hidden;
+    border-radius: 28px;
+    background: #fff;
+    border: 1px solid #e2eef6;
+    box-shadow: 0 14px 40px rgba(10, 82, 120, 0.12);
+
+    &Head {
+        position: relative;
+        padding: 28px 28px 30px;
+        color: #fff;
+        background: #0a5278 right center / cover;
+
+        // Overlay keeps the text readable over the photo
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(4, 52, 84, 0.75) 0%, rgba(4, 52, 84, 0.35) 55%, rgba(4, 52, 84, 0) 85%);
+        }
+
+        > * { position: relative; }
+
+        h4 { margin: 0 0 8px; font-size: 1.7rem; font-weight: 600; color: #fff; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35); }
+        p { margin: 0; max-width: 360px; font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, 0.95); }
+
+        @include max(575) { padding: 22px 18px; h4 { font-size: 1.4rem; } }
+    }
+
+    &Body { display: grid; gap: 12px; padding: 18px 18px 20px; }
+
+    // Photo thumbnail sits outside the row card
+    &Row {
+        display: flex;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    &Img {
+        flex-shrink: 0;
+        width: 86px;
+        min-height: 66px;
+        border-radius: 14px;
+        background: #cfe8f5 center / cover;
+        box-shadow: 0 6px 14px rgba(10, 82, 120, 0.14);
+
+        @include max(575) { width: 64px; }
+    }
+
+    &Card {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 10px 14px;
+        border-radius: 16px;
+        background: #f3f9fd;
+        border: 1px solid #e0edf6;
+        transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+
+        &:hover { background: #fff; }
+
+        @include max(575) { gap: 10px; padding: 8px 10px; }
+    }
+
+    &Icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #e4f1fb;
+        color: #0a6fb4;
+
+        @include max(575) { display: none; }
+    }
+
+    &Info {
+        flex: 1;
+        min-width: 0;
+
+        h5 { margin: 0; font-size: 15.5px; font-weight: 500; color: #0a3a6a; }
+        p { margin: 2px 0 0; font-size: 12.5px; line-height: 1.4; color: #64748b; }
+    }
+
+    &Price {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+        text-align: right;
+
+        b {
+            padding: 7px 18px;
+            border-radius: 999px;
+            background: #dcedfb;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0a4f8a;
+        }
+
+        small { max-width: 150px; font-size: 10.5px; line-height: 1.3; color: #64748b; }
+    }
+
+    &Go { flex-shrink: 0; color: #5b7a99; @include max(575) { display: none; } }
+
+    &Note {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 6px 4px 0;
+        font-size: 12.5px;
+        color: #64748b;
+
+        svg { flex-shrink: 0; color: #0a8fd0; }
+    }
+}
+
+// Royal Caribbean ship facts
+.cpShip {
+    overflow: hidden;
+    border-radius: 28px;
+    background: #fff;
+    border: 1px solid #e2eef6;
+    box-shadow: 0 14px 40px rgba(10, 82, 120, 0.12);
+
+    &Head {
+        position: relative;
+        padding: 34px 22px 16px;
+        color: #fff;
+        background: #061e3a center / cover;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(6, 30, 58, 0.1) 0%, rgba(6, 30, 58, 0.88) 100%);
+        }
+
+        > * { position: relative; }
+
+        span {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h4 { margin: 8px 0 0; font-size: 1.35rem; font-weight: 600; color: #fff; }
+        p { margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.85); }
+    }
+
+    &Body { padding: 14px 18px 18px; }
+
+    &Stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+
+        div {
+            padding: 10px 14px;
+            border-radius: 14px;
+            background: linear-gradient(160deg, #f3f9fd, #e8f3fb);
+            border: 1px solid #e0edf6;
+        }
+
+        b { display: block; font-size: 1.2rem; font-weight: 600; line-height: 1.1; color: #0a4f8a; }
+        small { display: block; margin-top: 3px; font-size: 11.5px; letter-spacing: 0.04em; color: #64748b; }
+    }
+
+}
+
+// Generic facts card
+.cpFacts {
+    padding: 28px;
+    border-radius: 28px;
+    background: linear-gradient(160deg, #0a3b5c, #061e3a);
+    color: #fff;
+    box-shadow: 0 16px 40px rgba(6, 30, 58, 0.28);
+
+    h4 { margin: 0 0 16px; font-size: 1.3rem; font-weight: 800; color: #fff; }
+    ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    li { display: flex; gap: 10px; font-size: 14px; line-height: 1.5; color: rgba(255, 255, 255, 0.9); }
+    svg { flex-shrink: 0; margin-top: 3px; color: #ffb08a; }
+}
+
+.cpDetailsCta {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+// Amenities showcase
+.cpAmenities {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #14104d, #0a3b6c);
+
+    .sectionHeader .sliderTitle,
+    .sectionHeader .sectionHeaderDescription { color: #fff; }
+
+    .sectionHeader .sliderTitle { font-weight: 500; }
+
+    .sectionHeader .sectionHeaderDescription { opacity: 0.8; }
+}
+
+.cpAmenity {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: 22px;
+    background-size: cover;
+    background-position: center;
+
+    // Bottom fade; plain white title
+    &Glass {
+        position: relative;
+        width: 100%;
+        padding: 90px 20px 20px;
+        color: #ffffffa6;
+        background: linear-gradient(180deg, rgba(6, 30, 58, 0) 0%, rgba(6, 30, 58, 0.92) 75%);
+
+        h4 { margin: 0 0 6px; font-size: 1.1rem; font-weight: 400; line-height: 1.3; color: #fff; }
+        p { margin: 0; font-size: 13px; line-height: 1.45; color: rgba(255, 255, 255, 0.88); }
+    }
+}
+
+// Mobile refinements
+@include max(767) {
+    .cpLines { padding: 48px 0 56px; }
+    .cpDetails, .cpAmenities { padding: 56px 0; }
+
+    // Section 2 cards
+    .cpCard {
+        min-height: 440px;
+        border-radius: 22px;
+
+        &Tag { font-size: 10px; letter-spacing: 0.1em; }
+        &Title { font-size: 1.35rem; }
+        &Btn { padding: 14px 16px; font-size: 12px; }
+    }
+
+    .cpFeature {
+        min-height: 340px;
+        scroll-snap-align: center;
+
+        &No { font-size: 2.6rem; }
+        &Glass { padding: 70px 18px 18px; }
+    }
+
+    .cpSubHeading { font-size: 1.4rem; margin-bottom: 14px; }
+
+    .cpDetailsCta .cpCardBtn { width: 100%; }
+
+    .cpAmenity {
+        min-height: 210px;
+        border-radius: 18px;
+
+        &Glass {
+            padding: 56px 12px 12px;
+
+            h4 { font-size: 0.92rem; }
+            p { font-size: 11.5px; }
+        }
+    }
+}
+
+// Banner buttons: keep Enquire and WhatsApp on one row on mobile
+@include max(767) {
+    .cpBanner .pageBanner .pageBannerContent .pageBannerActions {
+        flex-wrap: nowrap;
+        gap: 10px;
+
+        .bannerEnquireBtn,
+        .bannerWhatsappBtn {
+            flex: 1 1 0;
+            min-width: 0;
+            justify-content: center;
+            gap: 8px;
+            height: 48px;
+            padding: 0 10px !important;
+            font-size: 10px !important;
+            letter-spacing: 0.08em !important;
+            white-space: nowrap;
+        }
+    }
+}
+
+// Why book with Wegomap: photo + editorial numbered list
+.cpWhy {
+    background: #f8fafc;
+
+    &Layout {
+        display: grid;
+        gap: 32px;
+        align-items: stretch;
+
+        @include min(992) { grid-template-columns: 0.85fr 1.15fr; gap: 56px; }
+    }
+
+    &Photo {
+        position: relative;
+        min-height: 280px;
+        border-radius: 28px;
+        overflow: hidden;
+        background: #061e3a;
+        box-shadow: 0 20px 50px rgba(6, 30, 58, 0.22);
+
+        img { object-fit: cover; object-position: 45% center; }
+
+        // Soft bottom shade
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(180deg, rgba(6, 30, 58, 0) 55%, rgba(6, 30, 58, 0.55) 100%);
+        }
+
+        @include min(992) { min-height: 100%; }
+    }
+
+    &List { margin: 0; padding: 0; list-style: none; }
+
+    &Row {
+        display: flex;
+        gap: 24px;
+        padding: 22px 0;
+        border-bottom: 1px solid #e2e8f0;
+
+        &:first-child { padding-top: 0; }
+        &:last-child { border-bottom: 0; padding-bottom: 0; }
+
+        h3 { margin: 0 0 6px; font-size: 1.25rem; font-weight: 500; line-height: 1.3; color: $black; }
+        p { margin: 0; font-size: 14.5px; line-height: 1.75; color: #475569; }
+
+        @include max(575) { gap: 14px; padding: 18px 0; h3 { font-size: 1.1rem; } p { font-size: 14px; } }
+    }
+
+    &Index {
+        flex-shrink: 0;
+        min-width: 62px;
+        font-size: 2.6rem;
+        font-weight: 400;
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 1.2px $primaryColor;
+
+        @include max(575) { min-width: 44px; font-size: 1.9rem; }
+    }
+}
+
+// FAQs: help card + clean accordion
+.cpFaq {
+    background: #fff;
+
+    &Layout {
+        display: grid;
+        gap: 32px;
+        align-items: start;
+
+        @include min(992) { grid-template-columns: 0.7fr 1.5fr; gap: 56px; }
+    }
+
+    // Help card: light, with contact rows
+    &Aside {
+        overflow: hidden;
+        border-radius: 26px;
+        background: #fff;
+        border: 1px solid #e2eef6;
+        box-shadow: 0 16px 40px rgba(10, 82, 120, 0.12);
+
+        @include min(992) { position: sticky; top: 110px; }
+    }
+
+    &AsideTop {
+        padding: 28px 26px 22px;
+        background: #eaf6fc;
+
+        h3 { margin: 16px 0 8px; font-size: 1.55rem; font-weight: 500; color: #0a2a4a; }
+        p { margin: 0; max-width: 300px; font-size: 14.5px; line-height: 1.6; color: #475569; }
+    }
+
+    &AsideIcon {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        color: #fff;
+        background: linear-gradient(135deg, $primaryColor, #fb7f33);
+        box-shadow: 0 10px 22px rgba($primaryColor, 0.4);
+    }
+
+    &Contacts { display: grid; gap: 10px; padding: 18px 20px 22px; }
+
+    &Contact {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: #f8fbfd;
+        border: 1px solid #e0edf6;
+        text-decoration: none;
+        transition: background 0.2s, border-color 0.2s;
+
+        &:hover { background: #fff; border-color: #bcd9ec; }
+
+        small { display: block; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+        b { display: block; margin-top: 2px; font-size: 1.02rem; font-weight: 500; color: #0a2a4a; }
+    }
+
+    &ContactIcon {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        color: #fff;
+    }
+
+    &Contact.whatsapp &ContactIcon { background: #25d366; }
+    &Contact.call &ContactIcon { background: #0a5278; }
+
+    // Accordion: simple rows with dividers
+    &List { border-top: 1px solid #e2e8f0; }
+
+    &Item {
+        border-bottom: 1px solid #e2e8f0;
+        transition: background 0.25s;
+
+        &.open { background: linear-gradient(90deg, #fff7f3, rgba(255, 247, 243, 0)); }
+    }
+
+    &Q {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 22px 6px;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    &Text { flex: 1; font-size: 1.08rem; font-weight: 500; line-height: 1.4; color: $black; }
+
+    &Item.open &Text { color: $primaryColor; }
+
+    &Plus {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        border: 1.5px solid #cbd5e1;
+        color: #64748b;
+        transition: transform 0.3s, background 0.25s, border-color 0.25s, color 0.25s;
+    }
+
+    &Item.open &Plus {
+        transform: rotate(45deg);
+        background: $primaryColor;
+        border-color: $primaryColor;
+        color: #fff;
+    }
+
+    // Smooth height animation
+    &A {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+
+        > div { overflow: hidden; }
+
+        p {
+            margin: 0;
+            padding: 0 60px 24px 6px;
+            font-size: 15px;
+            line-height: 1.75;
+            color: #475569;
+        }
+    }
+
+    &Item.open &A { grid-template-rows: 1fr; }
+}
+
+// Final CTA: slim strip
+.cpFinal {
+    padding: 0 0 64px;
+    background: #fff;
+
+    &Strip {
+        position: relative;
+        display: grid;
+        gap: 22px;
+        align-items: center;
+        overflow: hidden;
+        padding: 28px 32px;
+        border-radius: 24px;
+        color: #0f172a;
+        background: linear-gradient(110deg, #fff4ee 0%, #fff 65%);
+        border: 1px solid #f1e3da;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+
+        @include min(992) { grid-template-columns: 1fr auto; gap: 32px; }
+        @include max(575) { padding: 22px 18px; border-radius: 20px; }
+    }
+
+    &Text {
+        h2 { margin: 0 0 6px; font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 500; line-height: 1.25; color: #0f172a; }
+        p { margin: 0; max-width: 640px; font-size: 14.5px; line-height: 1.6; color: #64748b; }
+    }
+
+    &Actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; }
+
+    &Btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 46px;
+        padding: 0 20px;
+        border: 0;
+        border-radius: 999px;
+        font-size: 12.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+
+        &.primary { background: $gradient; box-shadow: 0 8px 20px rgba($primaryColor, 0.4); }
+        &.whatsapp { background: #fff; color: #128c4a; border: 1.5px solid #25d366; }
+        &.call { background: #fff; color: #0472b4; border: 1.5px solid #0472b4; }
+
+        @include max(575) { flex: 1 1 100%; }
+    }
+}
+
+// Mobile polish (phones)
+@include max(575) {
+    .cpLines { padding: 40px 0 48px; }
+    .cpDetails, .cpAmenities { padding: 44px 0; }
+    .cpDetailsCta { margin-top: 28px; }
+
+    // Section 2 cards: details arrow moves to the top-right, button goes full width
+    .cpCard {
+        min-height: 0;
+        padding: 16px 16px 20px;
+        border-radius: 22px;
+        justify-content: flex-start;
+
+        // Photo on top (230px), text sits below the image on navy
+        > .cpImg { height: 230px !important; bottom: auto !important; }
+
+        &::before {
+            inset: 0 0 auto 0;
+            height: 230px;
+            background: linear-gradient(180deg, rgba(6, 30, 58, 0.2) 0%, rgba(6, 30, 58, 0) 40%, #061e3a 100%);
+        }
+
+        &Info { margin-top: 160px; }
+
+        &Link { display: none; }
+        &Tag { padding: 7px 12px; }
+        &Info { gap: 12px; }
+        &Title { font-size: 1.3rem; }
+        &Best { gap: 6px; span { padding: 5px 11px; font-size: 12px; } }
+        &Actions { margin-top: 2px; }
+        &Btn { max-width: none; width: 100%; padding: 14px 12px; font-size: 11.5px; letter-spacing: 0.04em; }
+    }
+
+    // Cabin / itinerary slider
+    .cpFeature { min-height: 380px; &Glass { padding: 60px 16px 16px; } }
+    .cpSubHeading { font-size: 1.35rem; }
+
+    // Excursions: compact rows
+    .cpExcur {
+        &Head { padding: 18px 16px; h4 { font-size: 1.25rem; } p { font-size: 13px; } }
+        &Body { padding: 12px; gap: 10px; }
+        &Row { gap: 8px; }
+        &Img { width: 56px; border-radius: 12px; }
+        &Card { padding: 8px 10px; border-radius: 14px; }
+        &Info h5 { font-size: 14px; }
+        &Info p { font-size: 12px; }
+        &Price b { padding: 6px 12px; font-size: 13px; }
+        &Price small { max-width: 90px; font-size: 10px; }
+    }
+
+    // Inclusions
+    .cpInclRows li { padding: 9px 0; gap: 12px; }
+    .cpInclText { font-size: 14px; }
+    .cpNot ul { gap: 6px; }
+
+    // Ship facts
+    .cpShipHead { padding: 28px 16px 14px; }
+    .cpShipBody { padding: 12px 14px 16px; }
+
+    // Why, best time, FAQ, final CTA
+    .cpWhyPhoto { min-height: 240px; border-radius: 22px; }
+    .cpFaqAside { border-radius: 22px; }
+    .cpFaqAsideTop { padding: 22px 18px 18px; }
+    .cpFaqContacts { padding: 14px 14px 18px; }
+    .cpFaqQ { padding: 16px 2px; }
+    .cpFaqText { font-size: 15px; line-height: 1.4; }
+    .cpFaqPlus { width: 32px; height: 32px; }
+    .cpFaqA p { padding: 0 8px 18px 2px; font-size: 14px; }
+    .cpFinal { padding-bottom: 44px; }
+}
+
+// Mobile: cabin types in the Exclusions heading wrap onto their own line
+@include max(575) {
+    .cpNot h5 {
+        flex-wrap: wrap;
+        row-gap: 4px;
+
+        em { flex-basis: 100%; padding-left: 38px; line-height: 1.4; }
+    }
+}
+
+// Cordelia destinations + itineraries
+.cpDest {
+    background: #fff;
+    scroll-margin-top: 90px;
+}
+
+// Destinations: expanding photo panels
+.cpAcc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include min(992) { flex-direction: row; height: 540px; gap: 12px; }
+}
+
+.cpAccPanel {
+    position: relative;
+    flex: 0 0 74px;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #061e3a center / cover;
+    cursor: pointer;
+    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+
+    // Dark fade so labels stay readable
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(6, 30, 58, 0.1) 30%, rgba(6, 30, 58, 0.85) 100%);
+        transition: opacity 0.4s;
+    }
+
+    @include min(992) { flex: 1 1 0; }
+
+    &.active {
+        flex: 0 0 380px;
+        box-shadow: 0 22px 50px rgba(6, 30, 58, 0.3);
+
+        @include min(992) { flex: 6 1 0; }
+    }
+}
+
+.cpAccNo {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    font-size: 1.2rem;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.85);
+}
+
+// Collapsed label: horizontal on mobile, vertical on desktop
+.cpAccName {
+    position: absolute;
+    left: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.05rem;
+    color: #fff;
+    white-space: nowrap;
+    transition: opacity 0.3s;
+
+    @include min(992) {
+        left: 50%;
+        top: auto;
+        bottom: 22px;
+        transform: translateX(-50%);
+        writing-mode: vertical-rl;
+        rotate: 180deg;
+        font-size: 1.15rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+.cpAccPanel.active .cpAccName { opacity: 0; }
+
+.cpAccBody {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 22px 24px 24px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.4s 0.15s, transform 0.4s 0.15s;
+    pointer-events: none;
+
+    h4 { margin: 10px 0 8px; font-size: 1.7rem; font-weight: 400; color: #fff; }
+    p { margin: 0; max-width: 520px; font-size: 14.5px; line-height: 1.65; color: rgba(255, 255, 255, 0.92); }
+
+    @include max(575) { padding: 16px; h4 { font-size: 1.4rem; } p { font-size: 13.5px; } }
+}
+
+.cpAccPanel.active .cpAccBody { opacity: 1; transform: none; pointer-events: auto; }
+
+.cpAccFrom {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: $primaryColor;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+// Sticky help card: html/body use overflow-x: hidden site-wide, which turns body into a
+// scroll container and stops position: sticky. On this page use clip instead (no scroll container).
+html:has(.cpFaqAside),
+body:has(.cpFaqAside) {
+    overflow-x: clip;
+}
+
+// Final CTA on phones: centred text, big primary button, WhatsApp and Call side by side
+@include max(575) {
+    .cpFinal { padding-bottom: 72px; }
+
+    .cpFinalStrip { padding: 28px 16px 20px; text-align: center; gap: 20px; }
+
+    .cpFinalText {
+        h2 { font-size: 1.5rem; }
+        p { margin: 0 auto; font-size: 14px; line-height: 1.6; }
+    }
+
+    .cpFinalActions { gap: 10px; }
+
+    .cpFinalBtn {
+        height: 50px;
+        padding: 0 12px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+
+        &.primary { flex: 1 1 100%; height: 54px; font-size: 13px; }
+        &.whatsapp,
+        &.call { flex: 1 1 calc(50% - 5px); }
+    }
+}
+
+// Destinations on phones and tablets: swipeable photo cards with the text always visible
+@include max(991) {
+    .cpAcc {
+        flex-direction: row;
+        gap: 14px;
+        margin: 0 -1rem;
+        padding: 0 1rem 6px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar { display: none; }
+    }
+
+    .cpAccPanel,
+    .cpAccPanel.active {
+        flex: 0 0 82%;
+        height: 440px;
+        scroll-snap-align: center;
+        border-radius: 24px;
+        box-shadow: 0 14px 34px rgba(6, 30, 58, 0.22);
+
+        @include min(576) { flex-basis: 56%; }
+
+        &::before { background: linear-gradient(180deg, rgba(6, 30, 58, 0) 35%, rgba(6, 30, 58, 0.92) 100%); }
+    }
+
+    .cpAccName { display: none; }
+
+    .cpAccNo { top: 18px; left: 20px; font-size: 1.5rem; }
+
+    .cpAccBody {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        padding: 20px;
+
+        h4 { font-size: 1.45rem; }
+        p { font-size: 14px; line-height: 1.6; }
+    }
+}
+
+// Phones: nothing smaller than 12px, body text at the home page's 14px
+@include max(575) {
+    .cpBanner .pageBanner .pageBannerContent .pageBannerActions {
+        .bannerEnquireBtn,
+        .bannerWhatsappBtn { font-size: 12px !important; letter-spacing: 0.04em !important; }
+    }
+
+    .cpCardTag,
+    .cpFeatureMeta,
+    .cpAccFrom,
+    .cpFaqContact small,
+    .cpShipHead span { font-size: 12px; }
+
+    .cpCardBtn,
+    .cpCard .cpCardBtn { font-size: 13px; }
+
+    .cpCardBest span,
+    .cpCardBest em { font-size: 13px; }
+
+    .cpExcurPrice small,
+    .cpExcurRow .cpExcurPrice small { font-size: 12px; max-width: 110px; }
+    .cpExcurInfo p { font-size: 13px; }
+
+    .cpAmenityGlass p,
+    .cpAmenity .cpAmenityGlass p { font-size: 13px; }
+
+    .cpShipStats small { font-size: 13px; }
+
+    .cpFinalBtn { font-size: 13px; }
+
+    .cpInclTabs button { font-size: 13px; }
+
+    .cpWhyRow p,
+    .cpFaqA p,
+    .cpFeatureGlass p,
+    .cpAccBody p { font-size: 14px; }
+}
+
+// Photos are <img> elements (next/image, fill) layered inside their frames
+.cpImg { object-fit: cover; }
+.cpImgRight { object-position: right center; }
+
+// Section 2 cards: photo sits behind the fade
+.cpCard > .cpImg { z-index: -2; }
+
+// Cabin cards
+.cpFeature { position: relative; }
+.cpFeature > .cpImg { z-index: 0; }
+.cpFeatureNo,
+.cpFeatureGlass { z-index: 2; }
+
+// Amenity tiles
+.cpAmenity > .cpImg { z-index: 0; }
+.cpAmenityGlass { z-index: 2; }
+
+// Destination panels: photo, then fade (::before), then text
+.cpAccPanel > .cpImg { z-index: 0; }
+.cpAccPanel::before { z-index: 1; }
+.cpAccNo,
+.cpAccName,
+.cpAccBody { z-index: 2; }
+
+// Excursion header, ship header: photo, overlay, text
+.cpExcurHead,
+.cpShipHead { position: relative; overflow: hidden; }
+.cpExcurHead > .cpImg,
+.cpShipHead > .cpImg { z-index: 0; }
+.cpExcurHead::before,
+.cpShipHead::before { z-index: 1; }
+.cpExcurHead > *:not(img),
+.cpShipHead > *:not(img) { position: relative; z-index: 2; }
+
+// Excursion thumbnails
+.cpExcurImg { position: relative; overflow: hidden; }
+
+// Header strips with the decorative backdrop
+.cpInclHead,
+.cpFaqAsideTop { position: relative; overflow: hidden; }
+.cpInclHead > .cpImg,
+.cpFaqAsideTop > .cpImg { z-index: 0; }
+.cpInclHead > *:not(img),
+.cpFaqAsideTop > *:not(img) { position: relative; z-index: 1; }
+
+// Onboard amenities: one-row slider
+.cpAmenitySlider .swiper-slide .cpAmenity { width: 100%; }

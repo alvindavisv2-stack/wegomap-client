@@ -95,9 +95,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function RootSlugPage({ params }: PageProps) {
     const { slug } = await params;
 
-    if (slug === 'cruise-packages') {
-        redirect('/cruises');
-    }
+   
 
     if (slug === 'kerala-taxi-service') {
         redirect('/cabs');

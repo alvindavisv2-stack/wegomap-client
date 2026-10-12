@@ -127,9 +127,9 @@ export default function CruisesSettingsPage() {
                 <div>
                     <h2 className="admin-page-title admin-page-title--section">
                         <div className="admin-page-title-indicator"></div>
-                        Cruises Page <span className="text-black"></span>
+                        Houseboats Page <span className="text-black"></span>
                     </h2>
-                    <p className="admin-page-subtitle text-slate-500 font-bold">Manage the hero banner and houseboat rules for the cruises &amp; houseboats page</p>
+                    <p className="admin-page-subtitle text-slate-500 font-bold">Manage the hero banner and houseboat rules for the houseboats page</p>
                 </div>
                 <button onClick={handleSave} disabled={saving} className="admin-btn admin-btn-primary h-12 px-8 !rounded-xl">
                     <Save size={18} className={saving ? 'animate-spin mr-2' : 'mr-2'} />
@@ -144,7 +144,7 @@ export default function CruisesSettingsPage() {
                         <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600"><Sparkles size={22} /></div>
                         <div>
                             <h3 className="text-lg font-black text-black uppercase">Main Page Banner</h3>
-                            <p className="text-xs text-slate-400 font-bold">Hero section for /cruises</p>
+                            <p className="text-xs text-slate-400 font-bold">Hero section for houseboats</p>
                         </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

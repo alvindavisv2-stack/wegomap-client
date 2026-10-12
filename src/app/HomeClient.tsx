@@ -30,7 +30,8 @@ import {
   ShieldCheck,
   Mail,
   Home as HomeIcon,
-  Contact
+  Contact,
+  ChevronDown
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -128,7 +129,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
     { name: "Tours", icon: "MapPin", active: true, href: "/packages" },
     { name: "Hotels", icon: "Building2", href: "/hotels" },
     { name: "Events", icon: "Calendar", href: "/events" },
-    { name: "Cruises", icon: "Ship", href: "/cruises" },
+    { name: "Cruises", icon: "Ship", href: "/cruise-packages" },
     { name: "Blogs", icon: "FileText", href: "/blogs" },
     { name: "Contact", icon: "Phone", href: "/contact" },
   ];
@@ -372,7 +373,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                   <span className="sectionSubtitle">{homeSections.find(s => s.id === 'offers')?.subtitle || "Limited Time Offers"}</span>
                   <h2 className="sliderTitle">{homeSections.find(s => s.id === 'offers')?.title || "First Minute Offers"}</h2>
                   {homeSections.find(s => s.id === 'offers')?.description && (
-                    <p className=" text-slate-500 max-w-2xl text-[13px] leading-relaxed">{homeSections.find(s => s.id === 'offers')?.description}</p>
+                    <div className=" text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'offers')?.description || '' }} />
                   )}
                 </div>
                 <Link href="/trending" className="viewAllBtn">
@@ -469,9 +470,10 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                 <div className="titleArea">
                   <span className="sectionSubtitle">{homeSections.find(s => s.id === 'kerala')?.subtitle || "God's Own Country"}</span>
                   <h2 className="sliderTitle">{homeSections.find(s => s.id === 'kerala')?.title || "Kerala Tour Packages"}</h2>
-                  <p className="text-slate-500 max-w-2xl text-[13px] leading-relaxed">
-                    {homeSections.find(s => s.id === 'kerala')?.description || "Experience the serene backwaters, misty hills, and pristine beaches of Kerala with our specially curated local packages."}
-                  </p>
+                  <div
+                    className="text-slate-500 max-w-2xl text-[13px] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'kerala')?.description || "Experience the serene backwaters, misty hills, and pristine beaches of Kerala with our specially curated local packages." }}
+                  />
                 </div>
                 <Link href="/packages?q=kerala" className="viewAllBtn">
                   View All <ArrowRight size={18} />
@@ -566,9 +568,10 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                 <div className="titleArea">
                   <span className="sectionSubtitle">{homeSections.find(s => s.id === 'tours')?.subtitle || "Explore The World & India"}</span>
                   <h2 className="sliderTitle">{homeSections.find(s => s.id === 'tours')?.title || "International and Domestic Packages"}</h2>
-                  <p className="text-slate-500 max-w-2xl text-[13px] leading-relaxed">
-                    {homeSections.find(s => s.id === 'tours')?.description || "Discover our handpicked collection of breathtaking international destinations and incredible Indian getaways."}
-                  </p>
+                  <div
+                    className="text-slate-500 max-w-2xl text-[13px] leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'tours')?.description || "Discover our handpicked collection of breathtaking international destinations and incredible Indian getaways." }}
+                  />
                 </div>
                 <Link href="/packages" className="viewAllBtn">
                   View All <ArrowRight size={18} />
@@ -665,7 +668,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                     {homeSections.find(s => s.id === 'special_events')?.title || "Special Events & Activities"}
                   </h2>
                   {homeSections.find(s => s.id === 'special_events')?.description && (
-                    <p className="text-slate-500 max-w-2xl text-[13px] leading-relaxed">{homeSections.find(s => s.id === 'special_events')?.description}</p>
+                    <div className="text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'special_events')?.description || '' }} />
                   )}
                 </div>
                 <Link href="/special-events" className="viewAllBtn">
@@ -878,7 +881,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                     {homeSections.find(s => s.id === 'kochi')?.title || "Kochi Based Travel Agency"}
                   </h2>
                   {homeSections.find(s => s.id === 'kochi')?.description && (
-                    <p className="text-slate-500 max-w-2xl text-[13px] leading-relaxed">{homeSections.find(s => s.id === 'kochi')?.description}</p>
+                    <div className="text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'kochi')?.description || '' }} />
                   )}
                 </div>
                 <Link href="/kerala-tour-packages" className="viewAllBtn">
@@ -984,14 +987,34 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                   <div className="readMoreWrapper text-center">
                     <div className={`readmore-content ${showMore ? 'is-expanded' : ''}`}>
                       <div
-                        className="mb-4"
+                        className={`mb-4 ${showMore ? '' : 'line-clamp-3'}`}
                         dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'seo')?.description || (homePage?.content && homePage.content !== 'file' ? homePage.content : "Experience the magic of God's Own Country with WEGOMAP.") }}
                       />
-                      <div className="extraText">
+                      {/* <div className="extraText">
                         <p>
                           At WEGOMAP, we pride ourselves on being the best travel agency for personalized tours that cater to your interests. Our packages include everything from romantic honeymoons and adventurous treks to relaxing family vacations and rejuvenating wellness retreats. As a Kochi-based tour operator, we have in-depth local knowledge to provide you with the most authentic experiences. We offer a range of services to make your trip seamless, including transportation, accommodation, and guided tours. Our team of experts is here to ensure every detail is taken care of, so you can focus on making memories. Whether you're exploring Kerala for the first time or revisiting its wonders, we strive to make your journey seamless and unforgettable. With WEGOMAP, you're not just booking a trip; you're investing in a lifetime of memories. Contact us today and let the best Kerala travel agency plan your perfect getaway. Explore Kerala with WEGOMAP and see why we're recognized as a leading Kerala tour operator!
                         </p>
-                      </div>
+                      </div> */}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowMore(prev => !prev)}
+                      aria-expanded={showMore}
+                      className="viewAllBtn cursor-pointer text-xs! tracking-[1px]!"
+                    >
+                      {showMore ? 'Read Less' : 'Read More'}
+                      <ChevronDown size={14} className={showMore ? 'rotate-180' : ''} />
+                    </button>
+                    <div className="viewAllMobileContainer">
+                      <button
+                        type="button"
+                        onClick={() => setShowMore(prev => !prev)}
+                        aria-expanded={showMore}
+                        className="viewAllBtnMobile cursor-pointer"
+                      >
+                        {showMore ? 'Read Less' : 'Read More'}
+                        <ChevronDown size={16} className={showMore ? 'rotate-180' : ''} />
+                      </button>
                     </div>
                   </div>
                 </div>

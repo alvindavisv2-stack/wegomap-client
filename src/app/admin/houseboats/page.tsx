@@ -127,7 +127,7 @@ export default function HouseboatsAdmin() {
                     </td>
                     <td className="px-8 py-6 text-right">
                       <div className="flex items-center justify-end gap-2 transition-all duration-300">
-                        <Link href={`/cruises/${item.slug || item._id}`} target="_blank" className="p-2.5 bg-white border border-slate-200 rounded-xl text-slate-400 hover:bg-slate-900 hover:text-white transition-all shadow-sm active:scale-95 group/view" title="View on Site">
+                        <Link href={`/cruise-packages/${item.slug || item._id}`} target="_blank" className="p-2.5 bg-white border border-slate-200 rounded-xl text-slate-400 hover:bg-slate-900 hover:text-white transition-all shadow-sm active:scale-95 group/view" title="View on Site">
                            <Globe size={16} />
                         </Link>
                         <Link href={`/admin/houseboats/${item._id}/edit`} className="p-2.5 bg-white border border-slate-200 rounded-xl text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-sm active:scale-95 group/edit" title="Edit">
