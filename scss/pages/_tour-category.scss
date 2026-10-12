@@ -191,7 +191,27 @@
         font-weight: 600;
         color: $primaryColor;
         box-shadow: 0 4px 6px -1px rgba($primaryColor, 0.1);
+        margin-top: 0.75rem;
         margin-bottom: 2rem;
+
+        @media (max-width: 639px) {
+            margin-top: 4.5rem;
+            display: flex;
+            width: fit-content;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            text-align: center;
+        }
+
+        // The description above already provides spacing; the larger mobile top margin
+        // is only needed to clear the banner overlap when there is no description
+        @media (max-width: 639px) {
+            &.hasDescription {
+                margin-top: 0.5rem;
+            }
+        }
 
         .tourCatBookedNum {
             color: $cosmicOrange;

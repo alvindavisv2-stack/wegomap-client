@@ -101,6 +101,10 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
     
     // Also format the main price
     const displayMainPrice = rawPrice.toLocaleString('en-IN');
+    const rawOldPrice = parseInt(pkg.oldPrice?.toString().replace(/[^d]/g, '') || '0') || 0;
+    const discountPercent = rawOldPrice > rawPrice && rawPrice > 0
+        ? Math.round(((rawOldPrice - rawPrice) / rawOldPrice) * 100)
+        : 0;
 
     const extractHighlights = (p: any) => {
         if (Array.isArray(p.highlights) && p.highlights.length > 0) return p.highlights;
@@ -292,18 +296,23 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
                             <CreditCard size={12} />
                             No Cost EMI at <strong>₹{emi}/month</strong>
                         </div>
-                        {pkg.oldPrice && (
-                            <span className="priceRegular line-through">
-                                {pkg.oldPrice}
-                            </span>
-                        )}
                     </div>
 
                     <div className="mainPriceSection">
-                        <div className="pricePrimary">
-                            <span className="currencySymbol">₹</span>
-                            <span className="mainValue">{displayMainPrice}</span>
-                            <span className="priceLabel">{pkg.per === 'Person' ? 'Per Person' : (pkg.per || "Per Person")}</span>
+                        <div className="priceBlock">
+                            {pkg.oldPrice && (
+                                <span className="priceWas">
+                                    <span className="priceWasValue line-through">{pkg.oldPrice}</span>
+                                    {discountPercent > 0 && (
+                                        <span className="priceOffBadge">{discountPercent}% OFF</span>
+                                    )}
+                                </span>
+                            )}
+                            <div className="pricePrimary">
+                                <span className="currencySymbol">₹</span>
+                                <span className="mainValue">{displayMainPrice}</span>
+                                <span className="priceLabel">{pkg.per === 'Person' ? 'Per Person' : (pkg.per || "Per Person")}</span>
+                            </div>
                         </div>
                         <div className="priceSecondary">
                             <span className="totalLabel">Total :</span>

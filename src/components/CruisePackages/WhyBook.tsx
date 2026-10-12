@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import GoogleRatingBadge from '@/components/GoogleRatingBadge';
 
 const reasons = [
     {
@@ -30,6 +31,7 @@ export default function WhyBook() {
                 <div className="sectionHeader">
                     <span className="sectionSubtitle">Why Wegomap</span>
                     <h2 className="sliderTitle">Why Book Your Cruise Package with Wegomap?</h2>
+                    <GoogleRatingBadge className="cpWhyRating" />
                 </div>
 
                 <div className="cpWhyLayout">

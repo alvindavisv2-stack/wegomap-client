@@ -180,6 +180,38 @@
     align-items: flex-end;
 }
 
+// Original (struck-out) price sits right above the selling price so it reads as "was" price, not EMI
+.priceBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .priceWas {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        line-height: 1;
+
+        .priceWasValue {
+            font-size: 14px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-decoration-color: #f87171;
+            text-decoration-thickness: 1.5px;
+        }
+
+        .priceOffBadge {
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.03em;
+            color: #15803d;
+            background: #dcfce7;
+            padding: 3px 7px;
+            border-radius: 6px;
+        }
+    }
+}
+
 .pricePrimary {
     display: flex;
     align-items: baseline;

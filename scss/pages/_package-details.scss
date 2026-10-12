@@ -674,6 +674,83 @@ $premiumShadow: 0 30px 60px -15px rgba(0, 0, 0, 0.12);
                     color: #94a3b8;
                     margin-top: 1.5rem;
                 }
+
+                // Compact single-line pill so it never wraps inside the narrow booking card
+                .bk-google-badge {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    // Default (mobile / tablet): one line. Everything is sized in em from one font-size.
+                    flex-wrap: nowrap;
+                    gap: 0.5em;
+                    width: fit-content;
+                    max-width: 100%;
+                    box-sizing: border-box;
+                    margin: 1.5rem auto 0;
+                    padding: 0.65em 1em;
+                    background: #fff;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 99px;
+                    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #1e293b;
+                    white-space: nowrap;
+
+                    @media (max-width: 360px) {
+                        font-size: 9.5px;
+                    }
+
+                    // Screens wider than 1300px (narrow sidebar booking card): two rows —
+                    // logo + score + stars on top, "<n> Google reviews" below (see .bk-google-count).
+                    @media (min-width: 1301px) {
+                        flex-wrap: wrap;
+                        gap: 0.4em 0.5em;
+                        padding: 0.75em 1.25em;
+                        border-radius: 1.25rem;
+                        font-size: 13px;
+                    }
+
+                    svg {
+                        flex-shrink: 0;
+                    }
+
+                    // Google "G" logo (direct child only, so the star icons keep their own size)
+                    > svg {
+                        width: 1.5em;
+                        height: 1.5em;
+                    }
+
+                    .bk-google-score {
+                        font-weight: 800;
+                    }
+
+                    .bk-google-stars {
+                        display: inline-flex;
+                        gap: 1px;
+
+                        svg {
+                            width: 0.9em;
+                            height: 0.9em;
+                        }
+                    }
+
+                    // Same look as the banner badge: a thin divider between the stars and the count
+                    .bk-google-count {
+                        color: #64748b;
+                        border-left: 1px solid #e2e8f0;
+                        padding-left: 0.75em;
+                        white-space: nowrap;
+
+                        @media (min-width: 1301px) {
+                            flex-basis: 100%;
+                            text-align: center;
+                            border-left: 0;
+                            padding-left: 0;
+                            font-size: 13.5px;
+                        }
+                    }
+                }
             }
         }
     }

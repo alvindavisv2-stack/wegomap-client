@@ -731,6 +731,50 @@ $cpTeal: #0e7490;
     }
 }
 
+// Google rating pill (GoogleRatingBadge): one line, divider before the review count
+.googleRatingBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 20px auto 0;
+    padding: 9px 18px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 99px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+
+    svg { flex-shrink: 0; }
+
+    .googleRatingScore { font-weight: 800; }
+
+    .googleRatingStars {
+        display: inline-flex;
+        gap: 2px;
+    }
+
+    .googleRatingCount {
+        color: #64748b;
+        border-left: 1px solid #e2e8f0;
+        padding-left: 10px;
+    }
+
+    // Small phones: tighten so the pill never overflows
+    @include max(400) {
+        gap: 6px;
+        padding: 8px 12px;
+        font-size: 12px;
+
+        .googleRatingCount { padding-left: 8px; }
+    }
+}
+
 // Why book with Wegomap: photo + editorial numbered list
 .cpWhy {
     background: #f8fafc;

@@ -221,6 +221,7 @@
 
 .enquireFormHeader {
     margin-bottom: 0.75rem;
+    padding-right: 3rem; // keeps the title clear of the close button so no word is hidden behind it
 
     @media (min-width: 768px) {
         margin-bottom: 1.5rem;
@@ -246,6 +247,7 @@
         text-transform: uppercase;
         position: relative;
         display: inline-block;
+        text-wrap: balance; // when it wraps, split evenly instead of leaving one word ("US") alone
         @include max(575){
             font-size: 1.3rem;
         }
@@ -259,6 +261,18 @@
             height: 4px;
             background: $primaryColor;
             border-radius: 2px;
+        }
+    }
+
+    .enquireDescription {
+        margin: 0;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #64748b;
+
+        @include max(575) {
+            font-size: 0.8125rem;
         }
     }
 }

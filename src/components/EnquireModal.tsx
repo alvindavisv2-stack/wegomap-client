@@ -98,8 +98,10 @@ export default function EnquireModal({ isOpen, onClose, packageName = 'General I
                 <div className="enquireFormSide">
                     <div className="enquireFormHeader">
                         <span className="enquireLabel">Get a Free Quote</span>
-                        <h2 className="enquireTitle">Fill form
-Get your offers!</h2>
+                        <h2 className="enquireTitle">Plan Your Perfect Trip with Us</h2>
+                        <p className="enquireDescription">
+                            Share your details and our travel expert will call you with the best options.
+                        </p>
                     </div>
 
                     <form onSubmit={handleFormSubmit} className="enquireForm">
@@ -184,7 +186,7 @@ Get your offers!</h2>
                                 </>
                             ) : (
                                 <>
-                                    Get My Plan)
+                                    Get My Free Plan
                                     <Send size={16} className="sendIcon" />
                                 </>
                             )}

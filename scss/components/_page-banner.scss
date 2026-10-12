@@ -263,6 +263,15 @@
     }
 
     &.isCentered {
+        // Let the banner grow with its content so the reviews badge isn't clipped
+        height: auto;
+        // Bottom padding also covers pages whose next section overlaps the banner (e.g. .tourCatPackages margin-top: -3rem)
+        padding: 2rem 0 6rem;
+
+        @include max(767) {
+            padding: 2rem 0 4.5rem;
+        }
+
         .pageBannerInner {
             text-align: center;
         }
@@ -307,6 +316,13 @@
             color: #1e293b;
             font-size: 0.85rem;
             font-weight: 600;
+            max-width: 100%;
+
+            @include max(767) {
+                gap: 8px;
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
 
             .googleIcon {
                 display: flex;
@@ -314,11 +330,23 @@
                 justify-content: center;
                 width: 22px;
                 height: 22px;
-                background: #4285F4;
-                color: #fff;
-                border-radius: 4px;
-                font-size: 0.75rem;
-                font-weight: 900;
+                background: #fff;
+                border-radius: 50%;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                @include min(768) {
+                    width: 28px;
+                    height: 28px;
+
+                    svg {
+                        width: 22px;
+                        height: 22px;
+                    }
+                }
             }
 
             .stars {
@@ -330,6 +358,11 @@
                 color: #64748b;
                 border-left: 1px solid #e2e8f0;
                 padding-left: 12px;
+                white-space: nowrap;
+
+                @include max(767) {
+                    padding-left: 8px;
+                }
             }
         }
 
