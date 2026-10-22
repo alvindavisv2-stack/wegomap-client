@@ -195,8 +195,8 @@ export default function SpecialEventDetailPage() {
                                     Event Overview
                                 </h2>
                                 <div className="ed-description-v3">
-                                    <div dangerouslySetInnerHTML={{ __html: firstPara }} className="ed-lead-text" />
-                                    <div dangerouslySetInnerHTML={{ __html: remainingParas }} />
+                                    <div dangerouslySetInnerHTML={{ __html: firstPara }} className="ed-lead-text richContent" />
+                                    <div dangerouslySetInnerHTML={{ __html: remainingParas }} className="richContent" />
                                 </div>
 
 

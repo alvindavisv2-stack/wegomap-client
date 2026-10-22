@@ -325,7 +325,7 @@ export default function TourDetailView({ id }: { id: string }) {
                                     Overview
                                 </h2>
                                 <div
-                                    className="description tour-description-content"
+                                    className="description tour-description-content richContent"
                                     dangerouslySetInnerHTML={{ __html: pkg.description }}
                                 />
 
@@ -409,7 +409,7 @@ export default function TourDetailView({ id }: { id: string }) {
                                             <div className="activityGrid">
                                                 <div className="flex flex-col">
                                                     <div
-                                                        className="activityText tour-description-content mb-4"
+                                                        className="activityText tour-description-content richContent mb-4"
                                                         dangerouslySetInnerHTML={{ __html: item.description || item.activity || '' }}
                                                     />
 
@@ -511,7 +511,7 @@ export default function TourDetailView({ id }: { id: string }) {
                                 <div className="mb-16">
                                     <h3 className="sectionTitle">Extra Information</h3>
                                     <div
-                                        className="description tour-description-content"
+                                        className="description tour-description-content richContent"
                                         dangerouslySetInnerHTML={{ __html: pkg.extraContact }}
                                     />
                                 </div>

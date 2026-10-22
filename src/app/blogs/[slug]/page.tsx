@@ -176,7 +176,7 @@ export default function BlogDetailPage() {
 
                             {/* Blog content render HTML */}
                             <div
-                                className="blog-content-render"
+                                className="blog-content-render richContent"
                                 dangerouslySetInnerHTML={{ __html: blog.content }}
                             />
 

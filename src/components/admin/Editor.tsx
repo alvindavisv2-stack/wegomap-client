@@ -51,7 +51,7 @@ export default function RichTextEditor({ value, onChange, height = 400 }: RichTe
               'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
             ],
             toolbar: 'undo redo | blocks | ' +
-              'bold italic forecolor | alignleft aligncenter ' +
+              'bold italic underline link unlink forecolor | alignleft aligncenter ' +
               'alignright alignjustify | bullist numlist outdent indent | ' +
               'removeformat | help',
             content_style: 'body { font-family:Inter,Helvetica,Arial,sans-serif; font-size:14px }',

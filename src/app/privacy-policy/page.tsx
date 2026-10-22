@@ -32,7 +32,7 @@ export default function PrivacyPolicyPage() {
                 
                 <div className="tour-description-content">
                     {pageData?.content ? (
-                        <div dangerouslySetInnerHTML={{ __html: pageData.content }} />
+                        <div className="richContent" dangerouslySetInnerHTML={{ __html: pageData.content }} />
                     ) : (
                         <>
                             <p>

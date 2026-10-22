@@ -373,7 +373,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                   <span className="sectionSubtitle">{homeSections.find(s => s.id === 'offers')?.subtitle || "Limited Time Offers"}</span>
                   <h2 className="sliderTitle">{homeSections.find(s => s.id === 'offers')?.title || "First Minute Offers"}</h2>
                   {homeSections.find(s => s.id === 'offers')?.description && (
-                    <div className=" text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'offers')?.description || '' }} />
+                    <div className="richContent text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'offers')?.description || '' }} />
                   )}
                 </div>
                 <Link href="/trending" className="viewAllBtn">
@@ -471,7 +471,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                   <span className="sectionSubtitle">{homeSections.find(s => s.id === 'kerala')?.subtitle || "God's Own Country"}</span>
                   <h2 className="sliderTitle">{homeSections.find(s => s.id === 'kerala')?.title || "Kerala Tour Packages"}</h2>
                   <div
-                    className="text-slate-500 max-w-2xl text-[13px] leading-relaxed"
+                    className="richContent text-slate-500 max-w-2xl text-[13px] leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'kerala')?.description || "Experience the serene backwaters, misty hills, and pristine beaches of Kerala with our specially curated local packages." }}
                   />
                 </div>
@@ -569,7 +569,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                   <span className="sectionSubtitle">{homeSections.find(s => s.id === 'tours')?.subtitle || "Explore The World & India"}</span>
                   <h2 className="sliderTitle">{homeSections.find(s => s.id === 'tours')?.title || "International and Domestic Packages"}</h2>
                   <div
-                    className="text-slate-500 max-w-2xl text-[13px] leading-relaxed"
+                    className="richContent text-slate-500 max-w-2xl text-[13px] leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'tours')?.description || "Discover our handpicked collection of breathtaking international destinations and incredible Indian getaways." }}
                   />
                 </div>
@@ -668,7 +668,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                     {homeSections.find(s => s.id === 'special_events')?.title || "Special Events & Activities"}
                   </h2>
                   {homeSections.find(s => s.id === 'special_events')?.description && (
-                    <div className="text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'special_events')?.description || '' }} />
+                    <div className="richContent text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'special_events')?.description || '' }} />
                   )}
                 </div>
                 <Link href="/special-events" className="viewAllBtn">
@@ -781,7 +781,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                   <span className="sectionSubtitle">{homeSections.find(s => s.id === 'corporate')?.subtitle || "MICE & Events"}</span>
                   <h2 className="sliderTitle">{homeSections.find(s => s.id === 'corporate')?.title || "Redefining Corporate Experiences"}</h2>
                   <div
-                    className="sectionHeaderDescription mb-0 max-w-2xl text-[13px] leading-relaxed text-slate-500"
+                    className="richContent sectionHeaderDescription mb-0 max-w-2xl text-[13px] leading-relaxed text-slate-500"
                     dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'corporate')?.description || "WEGOMAP delivers world-class event management services in Kochi and beyond." }}
                   />
                 </div>
@@ -881,7 +881,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                     {homeSections.find(s => s.id === 'kochi')?.title || "Kochi Based Travel Agency"}
                   </h2>
                   {homeSections.find(s => s.id === 'kochi')?.description && (
-                    <div className="text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'kochi')?.description || '' }} />
+                    <div className="richContent text-slate-500 max-w-2xl text-[13px] leading-relaxed" dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'kochi')?.description || '' }} />
                   )}
                 </div>
                 <Link href="/kerala-tour-packages" className="viewAllBtn">
@@ -987,7 +987,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                   <div className="readMoreWrapper text-center">
                     <div className={`readmore-content ${showMore ? 'is-expanded' : ''}`}>
                       <div
-                        className={`mb-4 ${showMore ? '' : 'line-clamp-3'}`}
+                        className={`richContent mb-4 ${showMore ? '' : 'line-clamp-3'}`}
                         dangerouslySetInnerHTML={{ __html: homeSections.find(s => s.id === 'seo')?.description || (homePage?.content && homePage.content !== 'file' ? homePage.content : "Experience the magic of God's Own Country with WEGOMAP.") }}
                       />
                       {/* <div className="extraText">

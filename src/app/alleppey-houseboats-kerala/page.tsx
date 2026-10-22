@@ -152,7 +152,7 @@ export default function CruisesListingPage() {
                                     
                                     {hb.description && (
                                         <div 
-                                            className="vessel-narrative-content" 
+                                            className="vessel-narrative-content richContent" 
                                             dangerouslySetInnerHTML={{ __html: hb.description }} 
                                         />
                                     )}
@@ -244,7 +244,7 @@ export default function CruisesListingPage() {
                 {/* ADDITIONAL DETAILS RICH TEXT HTML */}
                 {pageContent.additionalDetails && (
                     <div className="cruises-additional-details" style={{ marginTop: '20px' }}>
-                        <div dangerouslySetInnerHTML={{ __html: pageContent.additionalDetails }} className="prose max-w-none text-slate-700" />
+                        <div dangerouslySetInnerHTML={{ __html: pageContent.additionalDetails }} className="richContent prose max-w-none text-slate-700" />
                     </div>
                 )}
 

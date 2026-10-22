@@ -32,7 +32,7 @@ export default function TermsAndConditionsPage() {
                  
                 <div className="tour-description-content">
                     {pageData?.content ? (
-                        <div dangerouslySetInnerHTML={{ __html: pageData.content }} />
+                        <div className="richContent" dangerouslySetInnerHTML={{ __html: pageData.content }} />
                     ) : (
                         <ul>
                             <li>In the event of unavailability of the specified room category, we reserve the right to offer alternative accommodations of similar or different standards, subject to availability. The room rate may vary accordingly.</li>

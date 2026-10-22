@@ -203,7 +203,7 @@ export default function TourCategoryPage({
                 <div className="homeContainer">
                     {description && description.replace(/<[^>]*>|&nbsp;/g, '').trim() && (
                         <div style={{padding:"20px 0px"}} className="prose prose-slate max-w-none">
-                             <div dangerouslySetInnerHTML={{ __html: description }} />
+                             <div className="richContent" dangerouslySetInnerHTML={{ __html: description }} />
                              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50/30 rounded-bl-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                         </div>
                     )}
@@ -363,7 +363,7 @@ export default function TourCategoryPage({
                         )}
                         <div className="tourCatReadMoreBody">
                             {typeof readMoreContent === 'string' ? (
-                                <div dangerouslySetInnerHTML={{ __html: readMoreContent }} />
+                                <div className="richContent" dangerouslySetInnerHTML={{ __html: readMoreContent }} />
                             ) : (
                                 readMoreContent
                             )}
