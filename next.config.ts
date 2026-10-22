@@ -64,6 +64,10 @@ const nextConfig = {
     silenceDeprecations: ['import', 'legacy-js-api', 'if-function', 'global-builtin', 'color-functions']
   },
   typescript: { ignoreBuildErrors: true },
+  // The host caps threads per process; without this Next spawns one worker per detected CPU (63 on the build server) and aborts
+  experimental: {
+    cpus: 2,
+  },
   async redirects() {
     return [
       {
