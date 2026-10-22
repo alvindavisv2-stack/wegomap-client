@@ -19,7 +19,7 @@ import './TourDetailView.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-    Clock, MapPin, Check, X, ShieldCheck,
+    Clock, CreditCard, MapPin, Check, X, ShieldCheck,
     ChevronDown, Send, ArrowLeft, Sparkles,
     Building2, Car, Utensils, Star, Phone,
     Calendar, Users, Info, User, Heart, MessageSquare, Quote, ThumbsUp, Share2,
@@ -202,6 +202,7 @@ export default function TourDetailView({ id }: { id: string }) {
                         duration: sanitizeText(p.duration || p.days) || 'Flexible Duration',
                         price: p.price ? `₹ ${Number(p.price).toLocaleString()}` : 'Contact for Price',
                         oldPrice: p.oldamt ? `₹ ${Number(p.oldamt).toLocaleString()}` : undefined,
+                        noCostEmi: p.noCostEmi,
                         image: getImageUrl(p.thumb || (p.images && p.images[0]) || '/bg-placeholder.jpg'),
                         thumbAlt: p.thumbAlt || '',
                         images: (p.images || []).map((img: string) => getImageUrl(img)),
@@ -260,6 +261,11 @@ export default function TourDetailView({ id }: { id: string }) {
         </div>
     );
 
+    // Same EMI logic as PackageCard: admin-set monthly EMI, else price split over 3 months
+    const rawPrice = parseInt(pkg.price?.toString().replace(/[^\d]/g, '') || '0') || 0;
+    const emiValue = Number(pkg.noCostEmi) || Math.round(rawPrice / 3);
+    const emi = emiValue.toLocaleString('en-IN');
+
     return (
         <div className="packageDetailPage">
             <DynamicPageBanner
@@ -282,7 +288,7 @@ export default function TourDetailView({ id }: { id: string }) {
                             <Clock size={16} /> {pkg.duration}
                         </div>
                     </div>
-                    <div className="tStat border-l border-slate-100 pl-8">
+                    {/* <div className="tStat border-l border-slate-100 pl-8">
                         <span className="tLabel">Pricing</span>
                         <div className="tValue priceValue flex items-baseline gap-2">
                             <span>{pkg.price}</span>
@@ -293,7 +299,17 @@ export default function TourDetailView({ id }: { id: string }) {
                                 </span>
                             )}
                         </div>
+                    </div> */}
+                    <div className="tStat border-l border-slate-100 pl-8">
+                        <div className="tEmiPill">
+                            <span className="tEmiIcon"><CreditCard size={18} /></span>
+                            <div className="tEmiText">
+                                <span className="tEmiTitle">No Cost EMI{emiValue > 0 ? ' at' : ' Available'}</span>
+                                {emiValue > 0 && <span className="tEmiAmount">₹{emi}<small>/month</small></span>}
+                            </div>
+                        </div>
                     </div>
+
                     <div className="tStat border-l border-slate-100 pl-8 flex items-center gap-4">
                         <button
                             onClick={() => openEnquiry(pkg.title)}
@@ -552,13 +568,13 @@ export default function TourDetailView({ id }: { id: string }) {
 
                         <div className="bookingCol">
                             <div className="bookingCard">
-                                <div className="bk-price-row">
+                                {/* <div className="bk-price-row">
                                     <div className="bk-price-stack">
                                         <span className="bk-price-val">{pkg.price}</span>
                                         <span className="bk-price-label">Starting Price</span>
                                     </div>
 
-                                </div>
+                                </div> */}
 
                                 <div className="bk-stats">
                                     <div className="bk-stat-item">

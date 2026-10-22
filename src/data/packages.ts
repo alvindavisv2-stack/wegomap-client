@@ -14,6 +14,7 @@ export interface TourPackageDetail {
     location: string;
     duration: string;
     price: string;
+    noCostEmi?: number;
     oldPrice?: string;
     image: string;
     thumbAlt?: string;

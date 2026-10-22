@@ -208,8 +208,14 @@ export default function TourCategoryPage({
                         </div>
                     )}
 
-                    <div className={`tourCatBookedBadge mb-6${description && description.replace(/<[^>]*>|&nbsp;/g, '').trim() ? ' hasDescription' : ''}`}>
-                        <span className="tourCatBookedNum">{bookCount}</span> tours booked in the last 24 hours.
+                    <div className="tourCatTrustRow">
+                        <div className={`tourCatBookedBadge mb-6${description && description.replace(/<[^>]*>|&nbsp;/g, '').trim() ? ' hasDescription' : ''}`}>
+                            <span className="tourCatBookedNum">{bookCount}</span> tours booked in the last 24 hours.
+                        </div>
+                        <div className="tourCatPartnerLogos">
+                            <img src="/assets/images/incredible-india.png" alt="Incredible India" className="tourCatPartnerLogo" />
+                            <img src="/assets/images/kerala-tourism.png" alt="Kerala Tourism" className="tourCatPartnerLogo" />
+                        </div>
                     </div>
                     
                     {/* Filter + Search Strip */}

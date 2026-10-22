@@ -298,7 +298,7 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
                         </div>
                     </div>
 
-                    <div className="mainPriceSection">
+                    {/* <div className="mainPriceSection">
                         <div className="priceBlock">
                             {pkg.oldPrice && (
                                 <span className="priceWas">
@@ -318,7 +318,7 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
                             <span className="totalLabel">Total :</span>
                             <span className="totalValue">₹{totalPrice}</span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Action CTA */}

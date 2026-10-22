@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { MapPin, User, Mail, Phone, X, Send, ShieldCheck, MessageSquare } from 'lucide-react';
+import { MapPin, User, Phone, X, Send, ShieldCheck, MessageSquare, ChevronRight } from 'lucide-react';
 import { API_URL } from '@/config';
 import { toast } from 'react-hot-toast';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -113,6 +113,7 @@ export default function EnquireModal({ isOpen, onClose, packageName = 'General I
                                 <label>Interested In</label>
                                 <div>{packageName}</div>
                             </div>
+                            <ChevronRight size={18} className="enquireInterestArrow" />
                         </div>
 
                         <div className="enquireFormGrid">
@@ -146,23 +147,10 @@ export default function EnquireModal({ isOpen, onClose, packageName = 'General I
                                     />
                                 </div>
                             </div>
-
-                            <div className="enquireInputGroup">
-                                <label>Email Address</label>
-                                <div className="enquireInputWrapper">
-                                    <div className="enquireInputIcon"><Mail size={18} /></div>
-                                    <input
-                                        type="email"
-                                        placeholder="john@example.com"
-                                        value={formData.email}
-                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    />
-                                </div>
-                            </div>
                         </div>
 
                         <div className="enquireInputGroup">
-                            <label>Additional Requirements</label>
+                            <label>Trip Requirement</label>
                             <div className="enquireInputWrapper textarea">
                                 <div className="enquireInputIcon"><MessageSquare size={18} /></div>
                                 <textarea
@@ -186,8 +174,8 @@ export default function EnquireModal({ isOpen, onClose, packageName = 'General I
                                 </>
                             ) : (
                                 <>
-                                    Get My Free Plan
                                     <Send size={16} className="sendIcon" />
+                                    Get My Free Plan
                                 </>
                             )}
                         </button>

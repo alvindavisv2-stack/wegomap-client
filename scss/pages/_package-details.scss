@@ -120,6 +120,54 @@ $premiumShadow: 0 30px 60px -15px rgba(0, 0, 0, 0.12);
                 align-items: center;
             }
 
+            // Same look as the EMI badge on the package cards (PackageCard.scss), slightly larger
+            .tEmiPill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 9999px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+                white-space: nowrap;
+
+                .tEmiIcon {
+                    display: flex;
+                    color: $cosmicOrange;
+                }
+
+                .tEmiText {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                }
+
+                .tEmiTitle {
+                    // Same text style as the Duration label (.tLabel)
+                    font-size: 10px;
+                    font-weight: 900;
+                    color: #94a3b8;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                }
+
+                .tEmiAmount {
+                    font-size: 1.2rem;
+                    font-weight: 800;
+                    color: #0f172a;
+                    letter-spacing: -0.01em;
+
+                    small {
+                        font-size: 0.75rem;
+                        font-weight: 600;
+                        color: #64748b;
+                        margin-left: 2px;
+                        letter-spacing: 0;
+                    }
+                }
+            }
+
             .tValue {
                 font-size: 1.2rem;
                 font-weight: 950;

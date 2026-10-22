@@ -3,7 +3,7 @@
 .tourCatPage {
     background-color: #fbfbfb; // Softer surface
     min-height: 100vh;
-    padding-bottom: 4rem;
+    padding-bottom: 1rem;
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -180,6 +180,51 @@
     z-index: 10;
     margin-top: -3rem;
 
+    .tourCatTrustRow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem 2rem;
+
+        @media (max-width: 639px) {
+            gap: 0.5rem;
+            justify-content: center;
+        }
+    }
+
+    .tourCatPartnerLogos {
+        display: flex;
+        align-items: center;
+        gap: 1.75rem;
+        margin-left: auto;
+        // Same vertical margins as the booked badge so the two stay level
+        margin-top: 0.75rem;
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 639px) {
+            gap: 1.25rem;
+            margin-left: 0;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .tourCatPartnerLogo {
+        width: auto;
+        height: 2.25rem;
+        object-fit: contain;
+
+        // The Incredible India logo includes a two-line tagline, so it needs enough height to stay readable
+        &:first-child {
+            height: 3.5rem;
+        }
+
+        // The Kerala logo has a small tagline, so it needs more height to stay readable
+        &:last-child {
+            height: 3.75rem;
+        }
+    }
+
     .tourCatBookedBadge {
         background-color: rgba($primaryColor, 0.1);
         border-radius: 9999px;
@@ -196,6 +241,7 @@
 
         @media (max-width: 639px) {
             margin-top: 4.5rem;
+            margin-bottom: 0.5rem;
             display: flex;
             width: fit-content;
             max-width: 100%;
@@ -575,10 +621,10 @@
     color: #ffffff;
     text-align: center;
     border-radius: 2rem;
-    margin: 0 1rem 3rem 1rem; // Reduced margin-bottom
+    margin: 0 1rem 1.5rem 1rem;
 
     @media (min-width: 640px) {
-        margin: 0 2rem 5rem 2rem;
+        margin: 0 2rem 2rem 2rem;
     }
 
     .tourCatCTALabel {
