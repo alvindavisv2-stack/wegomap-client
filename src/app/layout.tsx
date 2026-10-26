@@ -97,6 +97,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: defaultDesc,
       keywords: pageKeywords,
       robots: "index, follow",
+      formatDetection: { telephone: false, address: false, email: false, date: false },
       icons: {
         icon: favIconUrl,
         shortcut: favIconUrl,
@@ -125,6 +126,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Best Kerala Tour Packages | WEGOMAP",
     description: "Experience the magic of God’s Own Country with WEGOMAP, your reliable Kerala travel partner.",
     robots: "index, follow",
+    formatDetection: { telephone: false, address: false, email: false, date: false },
   };
 }
 
