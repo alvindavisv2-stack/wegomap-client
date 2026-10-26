@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation, Virtual } from 'swiper/modules';
 import { Star, Check, ArrowRight, CreditCard,
     Hotel, Eye, Utensils, UserCheck, Car, FileCheck, Plane, Anchor, Camera,
     Coffee, Moon, ShieldPlus, Ship, Dumbbell, Truck, ParkingCircle, Ticket, Smartphone, Headphones, MapPin, Clock, ShieldCheck, Sparkles
@@ -87,9 +87,9 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
     
     // Normalize ALL images to full URLs before putting them in the Set to avoid duplicate paths vs full URLs
     const allImages = Array.from(new Set([
-        getImageUrl(pkg.image), 
+        getImageUrl(pkg.image),
         ...itineraryPhotos.map(img => getImageUrl(img))
-    ])).filter(Boolean);
+    ])).filter(Boolean).slice(0, 5);
     
     // Pricing data parsing
     const rawPrice = parseInt(pkg.price?.toString().replace(/[^\d]/g, '') || '0') || 0;
@@ -136,16 +136,16 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
             <div className="cardImageSection">
                 {allImages.length > 1 ? (
                     <Swiper
-                        modules={[Pagination, Navigation, Autoplay]}
+                        modules={[Pagination, Navigation, Autoplay, Virtual]}
                         pagination={{ clickable: true }}
-                
+                        virtual
                         autoplay={{ delay: 3000, disableOnInteraction: false }}
                         className="packageSwiper"
                     >
                         {allImages.map((img, idx) => (
-                            <SwiperSlide key={idx}>
-                                <Link 
-                                    href={pkg.href || `/packages/${pkg.slug || pkg._id}`} 
+                            <SwiperSlide key={idx} virtualIndex={idx}>
+                                <Link
+                                    href={pkg.href || `/packages/${pkg.slug || pkg._id}`}
                                     className="block relative aspect-[4/3] overflow-hidden"
                                 >
                                     <Image
@@ -154,7 +154,7 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
                                         fill
                                         className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        priority={pkg.onoffer}
+                                        priority={pkg.onoffer && idx === 0}
                                     />
                                     {pkg.onoffer && (
                                         <div className="absolute top-4 left-4  offerLabel">
