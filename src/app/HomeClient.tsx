@@ -429,10 +429,10 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                             <h4 className="packageTitle line-clamp-1">{item.title.replace(/ Package$/i, '')}</h4>
                             <p className="packageSubtitle">Package</p>
                           </div>
-                          <div className="bottomSection">
+                          {/* <div className="bottomSection">
                             {item.oldPrice && <span className="oldPrice">{item.oldPrice}</span>}
                             <span className="currentPrice">{item.price}<small> {item.per || "/ Person"}</small></span>
-                          </div>
+                          </div> */}
                           <WishlistButton id={item._id} wishlist={wishlist} toggleWishlist={toggleWishlist} />
                         </div>
                       </div>
@@ -528,10 +528,10 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                             <h4 className="packageTitle line-clamp-1">{item.title.replace(/ Package$/i, '')}</h4>
                             <p className="packageSubtitle">Package</p>
                           </div>
-                          <div className="bottomSection">
+                          {/* <div className="bottomSection">
                             {item.oldPrice && <span className="oldPrice">{item.oldPrice}</span>}
                             <span className="currentPrice">{item.price}<small> {item.per || "/ Person"}</small></span>
-                          </div>
+                          </div> */}
                           <WishlistButton id={item._id} wishlist={wishlist} toggleWishlist={toggleWishlist} />
                         </div>
                       </div>
@@ -626,10 +626,10 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                             <h4 className="packageTitle line-clamp-1">{item.title.replace(/ Package$/i, '')}</h4>
                             <p className="packageSubtitle">Package</p>
                           </div>
-                          <div className="bottomSection">
+                          {/* <div className="bottomSection">
                             {item.oldPrice && <span className="oldPrice">{item.oldPrice}</span>}
                             <span className="currentPrice">{item.price}<small> {item.per || "/ Person"}</small></span>
-                          </div>
+                          </div> */}
                           <WishlistButton id={item._id} wishlist={wishlist} toggleWishlist={toggleWishlist} />
                         </div>
                       </div>
