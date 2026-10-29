@@ -4,16 +4,54 @@
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: #fbfbfb;
 
-    // Top padding clears the fixed header
+    // While this page is shown, hide the site header content, footer, reviews and mobile bottom bar
+    @at-root body:has(&) {
+        // The 80px bottom padding is only there to make room for the mobile bottom bar
+        padding-bottom: 0 !important;
+
+        .headerInner,
+        .mainFooter,
+        .testimonialSection,
+        .mobileBottomNavWrapper {
+            display: none !important;
+        }
+    }
+
+    // Top padding leaves some room at the top now that the header is hidden
     .thankYouHero {
-        padding: 9rem 1rem 3.5rem;
+        position: relative;
+        padding: 5rem 1rem 3.5rem;
+        min-height: 100vh;
+        min-height: 100dvh; // dvh = the visible height on phones (100vh is taller than the screen when the browser bars show)
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
         background:
             radial-gradient(circle at 50% 0%, rgba($primaryColor, 0.1), transparent 60%),
             linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
 
         @media (max-width: 575px) {
-            padding: 7rem 1.25rem 2.5rem;
+            padding: 4rem 1.25rem 2.5rem;
+        }
+
+        // Site logo pinned to the top centre
+        .thankYouLogo {
+            position: absolute;
+            top: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+
+            img {
+                display: block;
+                height: 2.5rem;
+                width: auto;
+
+                @media (max-width: 575px) {
+                    height: 2.75rem;
+                }
+            }
         }
     }
 

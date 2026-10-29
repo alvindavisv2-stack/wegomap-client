@@ -1,10 +1,40 @@
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { API_URL, getImageUrl } from '@/config';
 
-export default function ThankYouPage() {
+// Same logo the site header uses (admin: Site Options), with the bundled logo as fallback
+async function getLogo() {
+    try {
+        const res = await fetch(`${API_URL}/options`, { next: { revalidate: 60 } });
+        const json = await res.json();
+        const opt = json?.data?.find((o: any) => o.key === 'site_logo');
+        if (opt?.value) return getImageUrl(opt.value);
+    } catch {
+        // fall through to the default logo
+    }
+    return '/assets/images/logo.png';
+}
+
+// Only reachable right after a form is sent (the forms add ?enquiry=success); anyone else goes home
+export default async function ThankYouPage({
+    searchParams,
+}: {
+    searchParams: Promise<{ enquiry?: string }>;
+}) {
+    const { enquiry } = await searchParams;
+    if (enquiry !== 'success') redirect('/');
+
+    const logo = await getLogo();
+
     return (
         <div className="thankYouPage">
             <section className="thankYouHero">
+                <Link href="/" className="thankYouLogo">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo} alt="WEGOMAP" />
+                </Link>
+
                 <div className="thankYouBadge">
                     <svg viewBox="0 0 200 130" aria-hidden="true">
                         <ellipse cx="108" cy="78" rx="62" ry="46" fill="#fde6d3" />

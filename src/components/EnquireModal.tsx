@@ -5,7 +5,6 @@ import { MapPin, User, Phone, X, Send, ShieldCheck, MessageSquare, ChevronRight 
 import { API_URL } from '@/config';
 import { toast } from 'react-hot-toast';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import { useRouter } from 'next/navigation';
 
 interface EnquireModalProps {
     isOpen: boolean;
@@ -15,7 +14,6 @@ interface EnquireModalProps {
 
 export default function EnquireModal({ isOpen, onClose, packageName = 'General Inquiry' }: EnquireModalProps) {
     const { executeRecaptcha } = useGoogleReCaptcha();
-    const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -73,7 +71,8 @@ export default function EnquireModal({ isOpen, onClose, packageName = 'General I
             });
             const data = await res.json();
             if (data.success) {
-                router.push('/thank-you');
+                // Full page load (not router.push) so the analytics scripts in the layout run on the thank-you page
+                window.location.assign('/thank-you?enquiry=success');
                 onClose();
                 setFormData({ name: '', phone: '', email: '', message: '' });
             } else {

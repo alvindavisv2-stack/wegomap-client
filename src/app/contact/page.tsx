@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
 import { API_URL } from '@/config';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
@@ -10,7 +9,6 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function ContactPage() {
     const { executeRecaptcha } = useGoogleReCaptcha();
-    const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -97,7 +95,8 @@ export default function ContactPage() {
 
             const data = await res.json();
             if (data.success) {
-                router.push('/thank-you');
+                // Full page load (not router.push) so the analytics scripts in the layout run on the thank-you page
+                window.location.assign('/thank-you?enquiry=success');
                 setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
             } else {
                 setStatus({ type: 'error', message: data.error || 'Failed to send message. Please try again later.' });
