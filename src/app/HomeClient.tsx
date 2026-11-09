@@ -982,7 +982,7 @@ export default function HomeClient({ initialSlides }: { initialSlides?: any[] })
                 <div className="col-xl-12 mx-auto">
                   <div className="sectionHeader">
                     <span className="sectionSubtitle">{homeSections.find(s => s.id === 'seo')?.subtitle || "Kerala Specialist"}</span>
-                    <h2 className="sliderTitle mb-8">{homeSections.find(s => s.id === 'seo')?.title || homePage?.title || "Best Tour Operator in Kerala"}</h2>
+                    <h1 className="sliderTitle mb-8">{homeSections.find(s => s.id === 'seo')?.title || homePage?.title || "Best Tour Operator in Kerala"}</h1>
                   </div>
                   <div className="readMoreWrapper text-center">
                     <div className={`readmore-content ${showMore ? 'is-expanded' : ''}`}>

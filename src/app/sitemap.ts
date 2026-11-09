@@ -3,6 +3,9 @@ import { API_URL } from '@/config';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.wegomap.com';
 
+// sitemap.ts is cached as a static route by default; this keeps it from going stale between deploys.
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -41,6 +44,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   } catch (_) {}
 
+  // Dynamic category/landing-page routes (served at the site root, e.g. /kerala-tour-packages)
+  let categoryRoutes: MetadataRoute.Sitemap = [];
+  try {
+    const res = await fetch(`${API_URL}/categories`, { next: { revalidate: 3600 } });
+    if (res.ok) {
+      const json = await res.json();
+      if (json.success && Array.isArray(json.data)) {
+        categoryRoutes = json.data
+          .filter((c: any) => c.slug && (c.status === 'Active' || !c.status))
+          .map((c: any) => ({
+            url: `${SITE_URL}/${c.slug}`,
+            lastModified: new Date(c.updatedAt || c.createdAt || Date.now()),
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+          }));
+      }
+    }
+  } catch (_) {}
+
   // Dynamic blog routes
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
@@ -58,5 +80,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   } catch (_) {}
 
-  return [...staticRoutes, ...packageRoutes, ...blogRoutes];
+  return [...staticRoutes, ...categoryRoutes, ...packageRoutes, ...blogRoutes];
 }

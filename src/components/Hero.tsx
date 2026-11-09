@@ -232,7 +232,7 @@ export default function Hero({ initialSlides }: { initialSlides?: any[] }) {
                                         </div>
 
                                         <div className="contentOverlay">
-                                            <h1>{slide.title}</h1>
+                                            <div className="heroSlideTitle">{slide.title}</div>
                                             <p className="heroSubheading">{slide.subtitle}</p>
                                             {slide.buttonHref && (
                                                 <Link href={slide.buttonHref} className="heroPackageBtn">{slide.buttonText}</Link>
@@ -251,7 +251,7 @@ export default function Hero({ initialSlides }: { initialSlides?: any[] }) {
                         </div>
                     ) : (
                         <div className="mt-[56px] md:mt-[80px] h-[50vh] md:h-[60vh] min-h-[350px] md:min-h-[450px] bg-slate-900 flex items-center justify-center rounded-[24px] md:rounded-[32px] overflow-hidden">
-                            <h1 className="text-white text-2xl font-bold">Welcome to WEGOMAP</h1>
+                            <div className="text-white text-2xl font-bold">Welcome to WEGOMAP</div>
                         </div>
                     )}
 

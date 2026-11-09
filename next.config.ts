@@ -70,6 +70,18 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Canonicalize to www — only matches the production apex host, so local/dev is unaffected.
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'wegomap.com',
+          },
+        ],
+        destination: 'https://www.wegomap.com/:path*',
+        statusCode: 301,
+      },
       {
         source: '/tours/:path*',
         destination: '/packages/:path*',
