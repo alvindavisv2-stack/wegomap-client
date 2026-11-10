@@ -21,7 +21,7 @@
     "html-react-parser": "^6.0.1",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.577.0",
-    "next": "^16.3.8",
+    "next": "^16.4.6",
     "qrcode.react": "^4.2.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -32,7 +32,10 @@
     "sharp": "^0.35.5",
     "slick-carousel": "^1.8.1",
     "swiper": "^12.1.2",
-    "tinymce": "^8.3.2"
+    "tinymce": "^8.10.1"
+  },
+  "overrides": {
+    "source-map-js": "^1.2.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -41,7 +44,7 @@
     "@types/react-dom": "^19",
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-slick": "^0.23.13",
-    "concurrently": "^9.2.1",
+    "concurrently": "^10.0.7",
     "sass": "^1.105.1",
     "tailwindcss": "^4",
     "typescript": "^5"

@@ -80,5 +80,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   } catch (_) {}
 
-  return [...staticRoutes, ...categoryRoutes, ...packageRoutes, ...blogRoutes];
+  // Dynamic hotel/houseboat routes
+  let hotelRoutes: MetadataRoute.Sitemap = [];
+  try {
+    const res = await fetch(`${API_URL}/houseboats`, { next: { revalidate: 3600 } });
+    if (res.ok) {
+      const json = await res.json();
+      if (json.success && Array.isArray(json.data)) {
+        hotelRoutes = json.data
+          .filter((h: any) => h.slug && (h.status === 'published' || !h.status))
+          .map((h: any) => ({
+            url: `${SITE_URL}/hotels/${h.slug}`,
+            lastModified: new Date(h.updatedAt || h.createdAt || Date.now()),
+            changeFrequency: 'weekly' as const,
+            priority: 0.75,
+          }));
+      }
+    }
+  } catch (_) {}
+
+  return [...staticRoutes, ...categoryRoutes, ...packageRoutes, ...blogRoutes, ...hotelRoutes];
 }
