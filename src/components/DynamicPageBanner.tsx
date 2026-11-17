@@ -31,7 +31,6 @@ interface DynamicPageBannerProps {
     category?: string;
     skipApiFetch?: boolean;
     hideBreadcrumbs?: boolean;
-    titleTag?: "h1" | "h2" | "div";
 }
 
 
@@ -51,8 +50,7 @@ export default function DynamicPageBanner({
     onEnquire,
     category,
     skipApiFetch = false,
-    hideBreadcrumbs = false,
-    titleTag = "h1"
+    hideBreadcrumbs = false
 }: DynamicPageBannerProps) {
     const pathname = usePathname();
     const [banner, setBanner] = useState<BannerData | null>(null);
@@ -155,7 +153,6 @@ export default function DynamicPageBanner({
             onEnquire={onEnquire}
             whatsappNumber={finalWhatsappNumber}
             hideBreadcrumbs={hideBreadcrumbs}
-            titleTag={titleTag}
         />
     );
 }

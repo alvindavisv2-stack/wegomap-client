@@ -4,7 +4,7 @@ import { categoryData } from '@/data/categoryData';
 import { API_URL, getImageUrl } from '@/config';
 
 export const metadata: Metadata = {
-    title: 'Kerala Tour Packages | WEGOMAP',
+    title: 'Best-Selling Kerala Tour Packages | WEGOMAP',
     description: 'Book handpicked Kerala tour packages with WEGOMAP. Custom itineraries, no cost EMI and 24x7 support.',
     // Ad landing page: the main /kerala-tour-packages category page is the one that should rank
     robots: { index: false, follow: false },
@@ -95,7 +95,7 @@ export default async function KeralaTourPackagesLandingPage() {
         <TourCategoryPage
             staticLanding
             logo={logo}
-            title={category?.title || staticData.title || 'Kerala Tour Packages'}
+            title={'Best-Selling Kerala Tour Packages'}
             subtitle={category?.subtitle || staticData.subtitle || ''}
             bannerImage={category?.bannerImage || staticData.bannerImage || '/uploads/categories/default.jpg'}
             packages={packages}

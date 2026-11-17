@@ -27,8 +27,6 @@ interface PageBannerProps {
     whatsappNumber?: string;
     /** Landing pages: no Home / category links above the title */
     hideBreadcrumbs?: boolean;
-    /** Tag used for the banner title (h1 by default); landing pages that have their own h1 pass another tag */
-    titleTag?: "h1" | "h2" | "div";
 }
 
 export default function PageBanner({
@@ -43,7 +41,6 @@ export default function PageBanner({
     showEnquire = false,
     onEnquire,
     hideBreadcrumbs = false,
-    titleTag: TitleTag = "h1",
     whatsappNumber = '918113998989'
 }: PageBannerProps) {
     const { openEnquiry } = useEnquiry();
@@ -106,9 +103,9 @@ export default function PageBanner({
 
                     <div className="pageBannerContent">
                         {preTitle && <div className="pageBannerPreTitle">{preTitle}</div>}
-                        <TitleTag className="pageBannerTitle">
+                        <h1 className="pageBannerTitle">
                             {title}
-                        </TitleTag>
+                        </h1>
                         {subtitle && <p className="pageBannerDescription">{subtitle}</p>}
 
                         {showEnquire && (

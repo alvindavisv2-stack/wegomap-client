@@ -823,6 +823,24 @@ $enquireInk: #0f2744;
     }
 }
 
+// Slightly darker input boxes and placeholders so the fields stand out on the light card
+.enquireInputWrapper {
+    input,
+    &.textarea textarea {
+        background: #f9fbfc;
+        border: 1px solid #e4e9ef;
+
+        &::placeholder {
+            color: #b9c1ca;
+        }
+
+        &:focus {
+            background: #fff;
+            border-color: rgba($primaryColor, 0.95);
+        }
+    }
+}
+
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }

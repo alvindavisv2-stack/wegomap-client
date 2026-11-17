@@ -213,7 +213,6 @@ export default function TourCategoryPage({
                 showEnquire={true}
                 onEnquire={() => handleQuickPlan(`Category: ${title}`)}
                 hideBreadcrumbs={staticLanding}
-                titleTag={staticLanding ? "h2" : "h1"}
                 skipApiFetch={staticLanding}
             />
 
