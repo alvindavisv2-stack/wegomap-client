@@ -25,6 +25,10 @@ interface PageBannerProps {
     showEnquire?: boolean;
     onEnquire?: () => void;
     whatsappNumber?: string;
+    /** Landing pages: no Home / category links above the title */
+    hideBreadcrumbs?: boolean;
+    /** Tag used for the banner title (h1 by default); landing pages that have their own h1 pass another tag */
+    titleTag?: "h1" | "h2" | "div";
 }
 
 export default function PageBanner({
@@ -38,6 +42,8 @@ export default function PageBanner({
     centered = false,
     showEnquire = false,
     onEnquire,
+    hideBreadcrumbs = false,
+    titleTag: TitleTag = "h1",
     whatsappNumber = '918113998989'
 }: PageBannerProps) {
     const { openEnquiry } = useEnquiry();
@@ -74,6 +80,7 @@ export default function PageBanner({
             <div className="pageBannerInner">
                 <div className="homeContainer">
                     <div className="pageBannerTop">
+                        {!hideBreadcrumbs && (
                         <nav className="pageBreadcrumb" aria-label="breadcrumb">
                             <Link href="/" className="breadcrumbItem breadcrumbHome">
                                 <Home size={13} />
@@ -93,14 +100,15 @@ export default function PageBanner({
                                 </span>
                             ))}
                         </nav>
+                        )}
 
                     </div>
 
                     <div className="pageBannerContent">
                         {preTitle && <div className="pageBannerPreTitle">{preTitle}</div>}
-                        <h1 className="pageBannerTitle">
+                        <TitleTag className="pageBannerTitle">
                             {title}
-                        </h1>
+                        </TitleTag>
                         {subtitle && <p className="pageBannerDescription">{subtitle}</p>}
 
                         {showEnquire && (

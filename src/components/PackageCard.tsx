@@ -54,9 +54,19 @@ interface PackageCardProps {
     wishlist: string[];
     toggleWishlist: (id: string, e: React.MouseEvent) => void;
     onEnquire: (e: React.MouseEvent, title: string) => void;
+    /** Landing pages: no links to the package page, no wishlist, and a single "Enquire Now" button */
+    enquiryOnly?: boolean;
 }
 
-export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }: PackageCardProps) {
+// In enquiry-only mode the image and title are plain elements instead of links
+function CardLink({ enquiryOnly, href, className, children }: { enquiryOnly: boolean; href: string; className?: string; children: React.ReactNode }) {
+    return enquiryOnly
+        ? <div className={className}>{children}</div>
+        : <Link href={href} className={className}>{children}</Link>;
+}
+
+export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire, enquiryOnly = false }: PackageCardProps) {
+
     // Parse subtitle for itinerary list (e.g. "2N Munnar / 1N Thekkady")
     const sub = pkg.subtitle || pkg.location;
     const itineraryItems = sub 
@@ -144,7 +154,7 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
                     >
                         {allImages.map((img, idx) => (
                             <SwiperSlide key={idx} virtualIndex={idx}>
-                                <Link
+                                <CardLink enquiryOnly={enquiryOnly}
                                     href={pkg.href || `/packages/${pkg.slug || pkg._id}`}
                                     className="block relative aspect-[4/3] overflow-hidden"
                                 >
@@ -161,13 +171,13 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
                                             {pkg.slabel || 'SPECIAL OFFER'}
                                         </div>
                                     )}
-                                </Link>
+                                </CardLink>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 ) : (
-                    <Link 
-                        href={pkg.href || `/packages/${pkg.slug || pkg._id}`} 
+                    <CardLink enquiryOnly={enquiryOnly}
+                        href={pkg.href || `/packages/${pkg.slug || pkg._id}`}
                         className="block relative aspect-[4/3] overflow-hidden"
                     >
                         <Image
@@ -183,21 +193,23 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
                                 {pkg.slabel || 'SPECIAL OFFER'}
                             </div>
                         )}
-                    </Link>
+                    </CardLink>
                 )}
-                
-                <div className="wishlistBtnWrapper">
-                    <WishlistButton id={pkg.slug} wishlist={wishlist} toggleWishlist={toggleWishlist} />
-                </div>
+
+                {!enquiryOnly && (
+                    <div className="wishlistBtnWrapper">
+                        <WishlistButton id={pkg.slug} wishlist={wishlist} toggleWishlist={toggleWishlist} />
+                    </div>
+                )}
             </div>
 
             <div className="cardContent">
                 {/* Header: Title & Duration */}
                 <div className="headerSection">
                     <div className="titleRow">
-                        <Link href={`/packages/${pkg.slug}`} className="titleLink">
+                        <CardLink enquiryOnly={enquiryOnly} href={`/packages/${pkg.slug}`} className="titleLink">
                             <h3 className="cardTitle leading-snug">{pkg.title}</h3>
-                        </Link>
+                        </CardLink>
                     </div>
                     {/* Rating Row - Added as per request */}
                     <div className="ratingReviewRow">
@@ -323,17 +335,19 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire }
 
                 {/* Action CTA */}
                 <div className="flex gap-3">
-                    <Link 
-                        href={`/packages/${pkg.slug}`}
-                        className="flex-1 flex items-center justify-center gap-2 border-2 border-slate-200 hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all rounded-xl py-3 font-bold text-sm"
-                    >
-                        Details
-                    </Link>
-                    <button 
-                        className="enquireMainBtn flex-[1.5]"
+                    {!enquiryOnly && (
+                        <Link
+                            href={`/packages/${pkg.slug}`}
+                            className="flex-1 flex items-center justify-center gap-2 border-2 border-slate-200 hover:border-slate-800 hover:bg-slate-800 hover:text-white transition-all rounded-xl py-3 font-bold text-sm"
+                        >
+                            Details
+                        </Link>
+                    )}
+                    <button
+                        className={`enquireMainBtn ${enquiryOnly ? 'flex-1' : 'flex-[1.5]'}`}
                         onClick={(e) => onEnquire(e, pkg.title)}
                     >
-                        Get My Plan
+                        {enquiryOnly ? 'Enquire Now' : 'Get My Plan'}
                     </button>
                 </div>
             </div>

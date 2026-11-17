@@ -53,6 +53,9 @@ export interface TourCategoryPageProps {
     readMoreContent?: React.ReactNode;
     readMoreHeading?: string;
     description?: string;
+    /** Static ad landing page: logo-only header, no breadcrumb links, and cards without a Details button */
+    staticLanding?: boolean;
+    logo?: string;
 }
 
 import DynamicPageBanner from './DynamicPageBanner';
@@ -68,6 +71,8 @@ export default function TourCategoryPage({
     readMoreContent,
     readMoreHeading,
     description,
+    staticLanding = false,
+    logo = "/assets/images/logo.png",
 }: TourCategoryPageProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPackage, setSelectedPackage] = useState('');
@@ -184,6 +189,17 @@ export default function TourCategoryPage({
 
     return (
         <div className="tourCatPage">
+            {staticLanding && (
+                <header className="lpHeader">
+                    <div className="lpHeaderInner homeContainer">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={logo} alt="WEGOMAP" className="lpHeaderLogo" />
+                        <button type="button" className="lpHeaderBtn" onClick={() => handleQuickPlan(`Category: ${title}`)}>
+                            Enquire Now
+                        </button>
+                    </div>
+                </header>
+            )}
 
             {/* ── Banner / Hero ── */}
             <DynamicPageBanner
@@ -196,6 +212,9 @@ export default function TourCategoryPage({
                 centered={true}
                 showEnquire={true}
                 onEnquire={() => handleQuickPlan(`Category: ${title}`)}
+                hideBreadcrumbs={staticLanding}
+                titleTag={staticLanding ? "h2" : "h1"}
+                skipApiFetch={staticLanding}
             />
 
             {/* ── Package Listings ── */}
@@ -349,6 +368,7 @@ export default function TourCategoryPage({
                                     pkg={normalizedPkg}
                                     wishlist={wishlist}
                                     toggleWishlist={toggleWishlist}
+                                    enquiryOnly={staticLanding}
                                     onEnquire={(e: React.MouseEvent, title: string) => handleQuickPlan(title)}
                                 />
                             );

@@ -18,12 +18,23 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
     
     const isAuthPage = pathname === '/login';
     const isAdminPage = pathname?.startsWith('/admin');
-    const showLayout = !isAuthPage && !isAdminPage && !hideLayout;
+    // Ad landing pages (/lp/...) bring their own minimal header and have no site header, footer or nav
+    const isLandingPage = pathname?.startsWith('/lp/');
+    const showLayout = !isAuthPage && !isAdminPage && !isLandingPage && !hideLayout;
 
     return (
         <>
             {showLayout && <Header />}
             <main>{children}</main>
+            {isLandingPage && (
+                <>
+                    <CommonTestimonials />
+                    <Footer />
+                    <FloatingWhatsApp />
+                    <FloatingButtons />
+                    <MyraBot />
+                </>
+            )}
             {showLayout && (
                 <>
                     <CommonTestimonials />

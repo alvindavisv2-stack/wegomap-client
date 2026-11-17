@@ -1,0 +1,45 @@
+// Minimal header for ad landing pages (/lp/...): logo and one Enquire button, no site navigation
+
+.lpHeader {
+    // Fixed at the top like the main site header; the page banner already leaves room for it (56px / 85px)
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+
+    .lpHeaderInner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 56px;
+
+        @media (min-width: 768px) {
+            height: 85px;
+        }
+    }
+
+    .lpHeaderLogo {
+        display: block;
+        height: 2.75rem;
+        width: auto;
+
+        @media (max-width: 575px) {
+            height: 2.25rem;
+        }
+    }
+
+    .lpHeaderBtn {
+        padding: 0.6rem 1.4rem;
+        border: none;
+        border-radius: 9999px;
+        background: linear-gradient(135deg, $primaryColor 0%, #ff8a50 100%);
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 8px 18px -6px rgba($primaryColor, 0.55);
+    }
+}
