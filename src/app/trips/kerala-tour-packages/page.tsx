@@ -14,19 +14,38 @@ const SLUG = 'kerala-tour-packages';
 const staticData: any = categoryData[SLUG] || {};
 
 // Fixed text for this landing page (it does not follow the category description set in the admin)
+// Opens in WhatsApp from the sticky mobile button
+const WHATSAPP_MESSAGE = 'Hi, I just visited your website. I am interested in Kerala tour packages';
+
 const DESCRIPTION =
     '<p>Wegomap is a Kochi-based tour operator in Kerala, offering high-quality Kerala tour packages at the best prices. We partner with trusted hotels and travel service providers to ensure a safe and enjoyable holiday experience, supported by 24/7 customer assistance. Contact us for customised tour packages tailored to your needs and budget.</p>';
 
-async function getLogo(): Promise<string> {
+// The logo and the WhatsApp number come from the admin Site Options ("WhatsApp" field). There is no default number: if none is set
+// in the admin, the cards simply have no WhatsApp button.
+async function getSiteOptions(): Promise<{ logo: string; whatsappNumber: string; phoneNumber: string }> {
+    let logo = '/assets/images/logo.png';
+    let whatsappNumber = '';
+    let phoneNumber = '';
     try {
         const res = await fetch(`${API_URL}/options`, { next: { revalidate: 60 } });
         const json = await res.json();
-        const opt = json?.data?.find((o: any) => o.key === 'site_logo');
-        if (opt?.value) return getImageUrl(opt.value);
+        const logoOpt = json?.data?.find((o: any) => o.key === 'site_logo');
+        if (logoOpt?.value) logo = getImageUrl(logoOpt.value);
+        const waOpt = json?.data?.find((o: any) => o.key === 'whatsapp');
+        const digits = waOpt?.value ? String(waOpt.value).replace(/\D/g, '') : '';
+        if (digits) whatsappNumber = digits;
+        // Call number: the floating buttons setting first, then the general phone option (same as the mobile bottom bar)
+        let phoneVal = '';
+        const fbOpt = json?.data?.find((o: any) => o.key === 'floating_buttons');
+        if (fbOpt?.value) {
+            try { phoneVal = JSON.parse(fbOpt.value).phone_number || ''; } catch { /* ignore */ }
+        }
+        if (!phoneVal) phoneVal = json?.data?.find((o: any) => o.key === 'phone1')?.value || '';
+        phoneNumber = String(phoneVal).replace(/[^\d+]/g, '');
     } catch {
-        // use the bundled logo
+        // keep the defaults
     }
-    return '/assets/images/logo.png';
+    return { logo, whatsappNumber, phoneNumber };
 }
 
 // The page itself is static; the package cards are the same Kerala packages as the /kerala-tour-packages
@@ -89,13 +108,17 @@ async function getCategoryAndPackages() {
 }
 
 export default async function KeralaTourPackagesLandingPage() {
-    const [logo, { category, packages }] = await Promise.all([getLogo(), getCategoryAndPackages()]);
+    const [{ logo, whatsappNumber, phoneNumber }, { category, packages }] = await Promise.all([getSiteOptions(), getCategoryAndPackages()]);
 
     return (
         <TourCategoryPage
             staticLanding
             logo={logo}
+            whatsappNumber={whatsappNumber || undefined}
+            phoneNumber={phoneNumber || undefined}
+            whatsappMessage={WHATSAPP_MESSAGE}
             title={'Best-Selling Kerala Tour Packages'}
+            preTitle="Popular Kerala Holiday Packages"
             subtitle={category?.subtitle || staticData.subtitle || ''}
             bannerImage={category?.bannerImage || staticData.bannerImage || '/uploads/categories/default.jpg'}
             packages={packages}

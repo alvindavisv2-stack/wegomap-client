@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { API_URL } from '@/config';
 import { Phone } from 'lucide-react';
 
-export default function FloatingButtons() {
+// whatsappMessage: optional text the chat opens with (landing pages)
+export default function FloatingButtons({ whatsappMessage }: { whatsappMessage?: string }) {
     const [config, setConfig] = useState({
         enabled: true,
         instagramUrl: '',
@@ -91,7 +92,7 @@ export default function FloatingButtons() {
             )}
             {config.whatsappNumber && (
                 <a
-                    href={`https://wa.me/${config.whatsappNumber}`}
+                    href={`https://wa.me/${config.whatsappNumber}${whatsappMessage ? `?text=${encodeURIComponent(whatsappMessage)}` : ""}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="floating-btn-item whatsapp"

@@ -25,6 +25,8 @@ interface PageBannerProps {
     showEnquire?: boolean;
     onEnquire?: () => void;
     whatsappNumber?: string;
+    /** Text the WhatsApp chat opens with */
+    whatsappMessage?: string;
     /** Landing pages: no Home / category links above the title */
     hideBreadcrumbs?: boolean;
 }
@@ -41,7 +43,8 @@ export default function PageBanner({
     showEnquire = false,
     onEnquire,
     hideBreadcrumbs = false,
-    whatsappNumber = '918113998989'
+    whatsappNumber = '918113998989',
+    whatsappMessage
 }: PageBannerProps) {
     const { openEnquiry } = useEnquiry();
     const googleRating = useGoogleRating();
@@ -118,7 +121,7 @@ export default function PageBanner({
                                     Enquire Now
                                 </button>
                                 <a
-                                    href={`https://wa.me/${whatsappNumber}`}
+                                    href={`https://wa.me/${whatsappNumber}${whatsappMessage ? `?text=${encodeURIComponent(whatsappMessage)}` : ""}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bannerWhatsappBtn px-8 py-4 text-white font-bold rounded-2xl flex items-center gap-3 transition-all active:scale-95 text-sm uppercase tracking-widest"

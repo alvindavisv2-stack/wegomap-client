@@ -19,19 +19,23 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
     const isAuthPage = pathname === '/login';
     const isAdminPage = pathname?.startsWith('/admin');
     // Ad landing pages (/trips/...) bring their own minimal header and have no site header, footer or nav
-    const isLandingPage = pathname?.startsWith('/trips/');
-    const showLayout = !isAuthPage && !isAdminPage && !isLandingPage && !hideLayout;
+    const isStaticLandingPage = pathname?.startsWith('/trips/');
+    // The chat opens with this text on landing pages
+    const landingWhatsappMessage = isStaticLandingPage
+        ? 'Hi, I just visited your website. I am interested in Kerala tour packages'
+        : '';
+    const showLayout = !isAuthPage && !isAdminPage && !isStaticLandingPage && !hideLayout;
 
     return (
         <>
             {showLayout && <Header />}
             <main>{children}</main>
-            {isLandingPage && (
+            {isStaticLandingPage && (
                 <>
                     <CommonTestimonials />
                     <Footer />
-                    <FloatingWhatsApp />
-                    <FloatingButtons />
+                    <FloatingWhatsApp whatsappMessage={landingWhatsappMessage} />
+                    <FloatingButtons whatsappMessage={landingWhatsappMessage} />
                     <MyraBot />
                 </>
             )}

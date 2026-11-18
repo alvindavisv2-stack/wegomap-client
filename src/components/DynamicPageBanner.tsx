@@ -31,6 +31,9 @@ interface DynamicPageBannerProps {
     category?: string;
     skipApiFetch?: boolean;
     hideBreadcrumbs?: boolean;
+    /** Overrides the WhatsApp number of the banner button */
+    whatsappNumber?: string;
+    whatsappMessage?: string;
 }
 
 
@@ -50,7 +53,9 @@ export default function DynamicPageBanner({
     onEnquire,
     category,
     skipApiFetch = false,
-    hideBreadcrumbs = false
+    hideBreadcrumbs = false,
+    whatsappNumber,
+    whatsappMessage
 }: DynamicPageBannerProps) {
     const pathname = usePathname();
     const [banner, setBanner] = useState<BannerData | null>(null);
@@ -128,7 +133,7 @@ export default function DynamicPageBanner({
     const finalPreTitle = preTitle || banner?.preTitle || fallbackPreTitle || (breadcrumbs.length > 0 ? breadcrumbs[breadcrumbs.length - 1].label : 'Explore');
     const finalImage = banner?.image || fallbackImage;
     const finalImageAlt = banner?.imageAlt || fallbackImageAlt;
-    const finalWhatsappNumber = banner?.whatsappNumber || '918113998989';
+    const finalWhatsappNumber = whatsappNumber || banner?.whatsappNumber || '918113998989';
 
     // If we're loading and have no title yet, we can return a skeleton or a themed loader
     if (!finalTitle && loading) return (
@@ -152,6 +157,7 @@ export default function DynamicPageBanner({
             showEnquire={showEnquire}
             onEnquire={onEnquire}
             whatsappNumber={finalWhatsappNumber}
+            whatsappMessage={whatsappMessage}
             hideBreadcrumbs={hideBreadcrumbs}
         />
     );

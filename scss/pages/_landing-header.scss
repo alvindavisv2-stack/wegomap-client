@@ -43,3 +43,51 @@
         box-shadow: 0 8px 18px -6px rgba($primaryColor, 0.55);
     }
 }
+
+// Two sticky buttons (Call + WhatsApp) at the bottom of the screen, phones only
+.lpStickyBar {
+    display: none;
+
+    @media (max-width: 767px) {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        display: flex;
+        gap: 0.75rem;
+        padding: 0.65rem 0.9rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+        background: #fff;
+        border-top: 1px solid #e2e8f0;
+        box-shadow: 0 -6px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .lpStickyBtn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 3rem;
+        border-radius: 0.75rem;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+
+        &.call {
+            background: linear-gradient(135deg, $primaryColor 0%, #ff8a50 100%);
+        }
+
+        &.whatsapp {
+            background: #25d366;
+        }
+    }
+}
+
+// Keep the footer clear of the sticky bar on phones
+@media (max-width: 767px) {
+    body:has(.lpStickyBar) {
+        padding-bottom: 4.5rem !important;
+    }
+}

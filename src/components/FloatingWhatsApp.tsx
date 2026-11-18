@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from '@/config';
 
-export default function FloatingWhatsApp() {
+// whatsappMessage: optional text the chat opens with (landing pages)
+export default function FloatingWhatsApp({ whatsappMessage }: { whatsappMessage?: string }) {
     const [whatsappNumber, setWhatsappNumber] = useState('918113998989');
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export default function FloatingWhatsApp() {
 
     return (
         <a
-            href={`https://wa.me/${whatsappNumber}`}
+            href={`https://wa.me/${whatsappNumber}${whatsappMessage ? `?text=${encodeURIComponent(whatsappMessage)}` : ""}`}
             target="_blank"
             rel="noopener noreferrer"
             className="floating-whatsapp"
