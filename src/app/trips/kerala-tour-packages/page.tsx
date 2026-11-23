@@ -118,6 +118,8 @@ export default async function KeralaTourPackagesLandingPage() {
             phoneNumber={phoneNumber || undefined}
             whatsappMessage={WHATSAPP_MESSAGE}
             title={'Best-Selling Kerala Tour Packages'}
+            // Enquiries keep the real category name the CRM already knows, not the landing page's marketing title
+            enquiryCategory={category?.title || staticData.title || 'Kerala Tour Packages'}
             preTitle="Popular Kerala Holiday Packages"
             subtitle={category?.subtitle || staticData.subtitle || ''}
             bannerImage={category?.bannerImage || staticData.bannerImage || '/uploads/categories/default.jpg'}

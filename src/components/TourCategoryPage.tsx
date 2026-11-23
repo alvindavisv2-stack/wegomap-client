@@ -60,6 +60,8 @@ export interface TourCategoryPageProps {
     whatsappNumber?: string;
     /** Static landing page: call number and WhatsApp text for the sticky buttons on mobile */
     phoneNumber?: string;
+    /** Category name saved with enquiries that come from the banner / header buttons (defaults to the title) */
+    enquiryCategory?: string;
     whatsappMessage?: string;
 }
 
@@ -80,6 +82,7 @@ export default function TourCategoryPage({
     logo = "/assets/images/logo.png",
     whatsappNumber,
     phoneNumber,
+    enquiryCategory,
     whatsappMessage,
 }: TourCategoryPageProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -202,7 +205,7 @@ export default function TourCategoryPage({
                     <div className="lpHeaderInner homeContainer">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={logo} alt="WEGOMAP" className="lpHeaderLogo" />
-                        <button type="button" className="lpHeaderBtn" onClick={() => handleQuickPlan(`Category: ${title}`)}>
+                        <button type="button" className="lpHeaderBtn" onClick={() => handleQuickPlan(`Category: ${enquiryCategory || title}`)}>
                             Enquire Now
                         </button>
                     </div>
@@ -219,7 +222,7 @@ export default function TourCategoryPage({
                 variant="large"
                 centered={true}
                 showEnquire={true}
-                onEnquire={() => handleQuickPlan(`Category: ${title}`)}
+                onEnquire={() => handleQuickPlan(`Category: ${enquiryCategory || title}`)}
                 hideBreadcrumbs={staticLanding}
                 whatsappNumber={staticLanding ? whatsappNumber : undefined}
                 whatsappMessage={staticLanding ? whatsappMessage : undefined}
