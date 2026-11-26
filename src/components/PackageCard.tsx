@@ -58,6 +58,8 @@ interface PackageCardProps {
     enquiryOnly?: boolean;
     /** Landing pages: shows a WhatsApp button under Enquire Now (digits only, with country code) */
     whatsappNumber?: string;
+    /** Text the card WhatsApp chat opens with */
+    whatsappMessage?: string;
 }
 
 // In enquiry-only mode the image and title are plain elements instead of links
@@ -67,7 +69,7 @@ function CardLink({ enquiryOnly, href, className, children }: { enquiryOnly: boo
         : <Link href={href} className={className}>{children}</Link>;
 }
 
-export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire, enquiryOnly = false, whatsappNumber }: PackageCardProps) {
+export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire, enquiryOnly = false, whatsappNumber, whatsappMessage }: PackageCardProps) {
 
     // Parse subtitle for itinerary list (e.g. "2N Munnar / 1N Thekkady")
     const sub = pkg.subtitle || pkg.location;
@@ -353,7 +355,7 @@ export default function PackageCard({ pkg, wishlist, toggleWishlist, onEnquire, 
                     </button>
                     {enquiryOnly && whatsappNumber && (
                             <a
-                                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hi, I just visited your website. I am interested in Kerala tour packages')}`}
+                                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage || 'Hi, I just visited your website. I am interested in Kerala tour packages')}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Chat on WhatsApp"

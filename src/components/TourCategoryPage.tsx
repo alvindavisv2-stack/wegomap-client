@@ -379,6 +379,7 @@ export default function TourCategoryPage({
                                     toggleWishlist={toggleWishlist}
                                     enquiryOnly={staticLanding}
                                     whatsappNumber={staticLanding ? whatsappNumber : undefined}
+                                    whatsappMessage={staticLanding ? whatsappMessage : undefined}
                                     onEnquire={(e: React.MouseEvent, title: string) => handleQuickPlan(title)}
                                 />
                             );

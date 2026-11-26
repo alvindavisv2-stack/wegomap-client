@@ -22,7 +22,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
     const isStaticLandingPage = pathname?.startsWith('/trips/');
     // The chat opens with this text on landing pages
     const landingWhatsappMessage = isStaticLandingPage
-        ? 'Hi, I just visited your website. I am interested in Kerala tour packages'
+        ? `Hi, I just visited your website. I am interested in Kerala ${pathname?.includes('honeymoon') ? 'honeymoon' : 'tour'} packages`
         : '';
     const showLayout = !isAuthPage && !isAdminPage && !isStaticLandingPage && !hideLayout;
 
